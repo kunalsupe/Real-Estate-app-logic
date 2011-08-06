@@ -7,7 +7,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @books } 
-      format.pdf { render :layout => false }
+      format.pdf  { render :layout => false }
     end
   end
 
@@ -16,11 +16,12 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @book }
-      format.pdf { render :layout => false }
-    end
+     respond_to do |format|
+        
+         format.html # index.html.erb
+        format.xml  { render :xml => @books } 
+        format.pdf { render :layout => false }
+      end
   end
 
   # GET /books/new
