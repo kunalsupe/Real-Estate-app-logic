@@ -19,7 +19,7 @@ class BooksController < ApplicationController
      respond_to do |format|
         
          format.html # index.html.erb
-        format.xml  { render :xml => @books } 
+        format.xml  { render :xml => @book } 
         format.pdf { render :layout => false }
       end
   end
