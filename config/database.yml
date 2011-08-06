@@ -1,0 +1,23 @@
+development:
+     host: localhost
+     adapter: mysql
+     database: document2
+     port: 3306
+     username: root
+     password: 
+
+test: &test
+     host: localhost
+     adapter: mysql
+     database: document2_test
+     port: 3306
+     username: root
+     password: 
+
+production:
+     host: localhost
+     adapter: mysql
+     database: document2
+     port: 3306
+     username: root
+     password: 
