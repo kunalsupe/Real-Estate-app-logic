@@ -14,6 +14,23 @@ class BooksController < ApplicationController
       format.pdf  { render :layout => false }  
     end
     end
+  end  
+  
+  def showmybook
+    @book = Book.all
+        
+      if current_user
+         @a = current_user.id  
+          @b = Book.where(:author_id => @a)
+        
+        @user = current_user 
+        else
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @books } 
+      format.pdf  { render :layout => false }  
+    end
+    end
   end
 
   # GET /books/1
@@ -21,7 +38,9 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])  
     if current_user
-      a = current_user  
+    # @a = current_user.id    
+     # @b = @book.author_id
+      
     
       @user = current_user 
       else 
@@ -32,7 +51,9 @@ class BooksController < ApplicationController
         format.pdf { render :layout => false }  
        end
       end
-  end
+  end      
+  
+  
 
   # GET /books/new
   # GET /books/new.xml

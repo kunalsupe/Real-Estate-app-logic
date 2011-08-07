@@ -5,9 +5,10 @@
 
 <!--  START PRIMARY CONTENT -->
 <div id="primary_content">
-<h5>List of books</h5>
 
 
+
+<h5>My books</h5>
 <table class="tablesorter" id="myTable"> 
   <tr>
     <th>Title</th>
@@ -17,7 +18,7 @@
    
   </tr>
 
-<% @books.each do |book| %>
+<% @b.each do |book| %>
   <tr>
     <td><%= book.title %></td>
     <td><%= book.author %></td>
@@ -32,10 +33,10 @@
   </tr>
 <% end %>
 </table>
-
+  
 <br />
 
 <%= link_to 'Enter New Book', new_book_path %>  
-
+ 
 
 

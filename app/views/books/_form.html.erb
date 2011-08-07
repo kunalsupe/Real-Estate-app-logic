@@ -16,16 +16,16 @@
  <%=  f.hidden_field :author, :value => @user.name %>   
 
   
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
 
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
+<p><label>    <%= f.label :title %> </label>
+<div class="input large"> <%= f.text_field :title %> </div>
+
+
+  
+<p><label>    <%= f.label :description %></label>   
+<div class="input large">      <%= f.text_area :description %></div>
+  
+<div class="button">  <div id="button"> 
     <%= f.submit %>
-  </div>
+  </div>      </div>
 <% end %>

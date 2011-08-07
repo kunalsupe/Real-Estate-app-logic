@@ -37,8 +37,7 @@
 		
 	                <% else %>
 		          <li><%= link_to "Sign In", authentications_path %> </li>   <% end %> 
-		          <li><a href="#">Suppersized Longer Link</a></li>
-		          <li><a href="#">Another</a></li>
+		         
 		          <li><%= link_to "Sign out", destroy_user_session_path %></li>
 		      </ul>
 		    </div> <!--  end div #nav -->
@@ -49,27 +48,27 @@
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
-      <%= yield %>
-    </div>         
+      <%= yield %>   
+      
+    </div>              
 <% if user_signed_in? %> 
    <!--  START SIDEBAR -->
    <div id="sidebar">
 		<h3>Sidebar</h3>
         <ul>
-            <li><a href="#"><img src="images/001_20.png" width="24" height="24" alt="Home" />Lorem Ipsum</a></li>
-            <li><a href="#"><img src="images/001_12.png" width="24" height="24" alt="Mail" />Cras Lorum</a></li>
-            <li><a href="#" class="active"><img src="images/001_44.png" width="24" height="24" alt="Calendar" />Nunc Tempus</a></li>
-            <li><a href="#"><img src="images/001_14.png" width="24" height="24" alt="Favourites" />Aenean</a></li>
-            <li><a href="#"><img src="images/001_43.png" width="24" height="24" alt="Folders" />Nulla</a></li>
-            <li><a href="#"><img src="images/information.png" width="24" height="24" alt="Comments" />Mauris </a></li>
-            <li><a href="#"><img src="images/001_42.png" width="24" height="24" alt="Security" />Phasellus </a></li>
+            <li><img src="images/001_20.png" width="24" height="24" alt="Home" /><%= link_to 'View Books', books_path %></li>
+            <li><img src="images/001_12.png" width="24" height="24" alt="Mail" /><%= link_to 'Enter New Book', new_book_path %></li>
+            <li><img src="images/001_44.png" width="24" height="24" alt="Calendar" /><%= link_to 'My books', :action => 'showmybook' %> </li>
+           
+            <li><img src="images/001_43.png" width="24" height="24" alt="Folders" /><li><%= link_to "Sign out", destroy_user_session_path %></li></li>
+           
         </ul>
       </div><!--  end div #sidebar -->
    <!--  END SIDEBAR -->
 
                  <% end %>
 	<!--  START FOOTER -->
-	<div id="footer">© Copyright 2009 Your Company | Powered by <a href="#">Kunal Infotech Pvt Ltd</a> | <a href="#">Top</a></div>
+	<div id="footer">© Copyright 2011 Your Company | Powered by <a href="http://www.kunalinfotech.net" target= "_blank" >Kunal Infotech Pvt Ltd</a> | <a href="#">Top</a></div>
 	<!--  END FOOTER -->       
 
 	</div><!--  end div #wconent_rapper -->
