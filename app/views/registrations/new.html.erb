@@ -1,23 +1,28 @@
-<h2>Sign up</h2>
+<div id="admin_wrapper">
+	<h1>Kunal Infotech -  Example Oauth</h1>
+	
+	<p>Welcome To KIPL.</p>
+	
+	<div class="attention">Sign up or <%= link_to "Sign in through Social N/W sites ", authentications_path %></div>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-<p><%= f.label :name %><br />
-  <%= f.text_field :name %></p>  
+<p><label><%= f.label :name %> </label>
+<div class="input large">  <%= f.text_field :name %></p>  </div>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+<p><label><%= f.label :email %></label> 
+<div class="input large">   <%= f.text_field :email %></p>   </div> 
 
 <% if @user.password_required? %>
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
+  <p><label><%= f.label :password %></label> 
+<div class="input large">  <%= f.password_field :password %></p> </div> 
 
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
+ <p><label><%= f.label :password_confirmation %></label> 
+<div class="input large">  <%= f.password_field :password_confirmation %></p>   </div> 
 <% end %>
 
-  <p><%= f.submit "Sign up" %></p>
+ <div class="button">  <div id="button"> <%= f.submit "Sign up" %></div> </div> 
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

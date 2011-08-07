@@ -1,12 +1,18 @@
-<h2>Forgot your password?</h2>
+<div id="admin_wrapper">
+	<h1>Kunal Infotech -  Example Oauth</h1>
+	
+	<p>Forgot your password?</p>
+	
+	<div class="attention">Sign up or <%= link_to "Sign in through Social N/W sites ", authentications_path %></div>
+
 
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+ <p><label><%= f.label :email %></label> 
+<div class="input large">   <%= f.text_field :email %></p>   </div>
 
-  <p><%= f.submit "Send me reset password instructions" %></p>
+  <div class="button">  <div id="button"><%= f.submit "Send me reset password instructions" %></div> </div> 
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

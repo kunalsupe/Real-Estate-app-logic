@@ -1,12 +1,19 @@
-<h1>Listing books</h1>
 
 
-<table>
+<!--  START CONTENT -->
+<div id="content_wrapper">
+
+<!--  START PRIMARY CONTENT -->
+<div id="primary_content">
+<h5>List of books</h5>
+
+
+<table class="tablesorter" id="myTable"> 
   <tr>
     <th>Title</th>
     <th>Author</th>
     <th>Description</th>
-    <th></th>
+    <th>Action</th>
    
   </tr>
 
@@ -14,11 +21,11 @@
   <tr>
     <td><%= book.title %></td>
     <td><%= book.author %></td>
-    <td><%= book.description %>
+    <td><%= truncate (book.description, :length => 30) %>
 
 </td>
     
-    <td><%= link_to 'Show', book %></td>   
+    <td> <div class="button">  <div id="button"><%= link_to 'View', book %> </div> </div>  </td>   
 
                     
 
@@ -28,5 +35,6 @@
 
 <br />
 
-<%= link_to 'New Book', new_book_path %>         
+<%= link_to 'New Book', new_book_path %>  
+
 

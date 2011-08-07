@@ -1,10 +1,18 @@
 
-<p id="notice"><%= notice %></p>
 
-<p>
+<!--  START CONTENT -->
+<div id="content_wrapper">
+
+<!--  START PRIMARY CONTENT -->
+<div id="primary_content">
+
+<div class="success canhide">  <p align ="left">
   <b>Title:</b>
   <%= @book.title %>
 </p>
+<p id="notice"> <%= notice %></p></div>
+
+
 
 <p>
   <b>Author:</b>
@@ -25,5 +33,5 @@
 
  
  <% end %>                    
-<p><%= link_to "Printable Case (PDF)", book_path(@book, :format => 'pdf') %></p>
+<p align ="right"><%= link_to "Printable Case (PDF)", book_path(@book, :format => 'pdf') %></p>
 <%= link_to 'Back', books_path %>  
