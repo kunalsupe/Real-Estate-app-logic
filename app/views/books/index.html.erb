@@ -21,7 +21,7 @@
   <tr>
     <td><%= book.title %></td>
     <td><%= book.author %></td>
-    <td> <% result = render_to_string :partial => 'truncate' %>
+    <td> <%= truncate(book.description,30, "...") %>
 
 </td>
     
