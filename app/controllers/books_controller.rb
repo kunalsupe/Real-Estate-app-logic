@@ -2,25 +2,35 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.xml
   def index
-    @books = Book.all
+    @books = Book.all     
+      if current_user
+        a = current_user  
 
+        @user = current_user 
+        else
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @books } 
-      format.pdf  { render :layout => false }
+      format.pdf  { render :layout => false }  
+    end
     end
   end
 
   # GET /books/1
   # GET /books/1.xml
   def show
-    @book = Book.find(params[:id])
-
+    @book = Book.find(params[:id])  
+    if current_user
+      a = current_user  
+    
+      @user = current_user 
+      else 
      respond_to do |format|
         
          format.html # index.html.erb
         format.xml  { render :xml => @book } 
-        format.pdf { render :layout => false }
+        format.pdf { render :layout => false }  
+       end
       end
   end
 
@@ -28,11 +38,15 @@ class BooksController < ApplicationController
   # GET /books/new.xml
   def new
     @book = Book.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @book }
-    end
+    @authentication = Authentication.all 
+    if current_user
+      
+     a = current_user
+     @user = User.find(a)  
+   else   
+     redirect_to @authentication  
+    
+  end
   end
 
   # GET /books/1/edit

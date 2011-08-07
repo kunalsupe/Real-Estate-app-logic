@@ -15,11 +15,13 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
+    <div id="container">  
+	<%= link_to "Home", root_path %>
       <div id="user_nav">
         <% if user_signed_in? %>
           Signed in as <%= current_user.email %>.<br />
-          Not you? <%= link_to "Sign out", destroy_user_session_path %>
+          Not you? <%= link_to "Sign out", destroy_user_session_path %> 
+         Edit Profile <%= link_to "edit", :controller => 'registrations', :action => 'edit' %>
         <% else %>
           <%= link_to "Sign In", authentications_path %>
         <% end %>

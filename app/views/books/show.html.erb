@@ -15,8 +15,15 @@
   <b>Description:</b>
   <%= @book.description %>
 </p>
-
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
  
+<%  if current_user %>
+<% if @user.id == @book.author_id %>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |  <%= link_to "Destroy",@book, :confirm => "Are you sure?", :method => :delete %>       
+ <% else %>                                   
+ <% end %>
+
+ 
+ <% end %>                    
+<p><%= link_to "Printable Case (PDF)", book_path(@book, :format => 'pdf') %></p>
+<%= link_to 'Back', books_path %>  

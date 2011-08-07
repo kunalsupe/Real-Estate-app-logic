@@ -6,5 +6,5 @@ Todo::Application.routes.draw do
   resources :projects
   resources :tasks
   resources :authentications
-  root :to => "projects#index"
+  root :to => "books#index"
 end
