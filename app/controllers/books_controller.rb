@@ -44,7 +44,7 @@ class BooksController < ApplicationController
      a = current_user
      @user = User.find(a)  
    else   
-     redirect_to @authentication  
+     redirect_to authentications_path  
     
   end
   end
