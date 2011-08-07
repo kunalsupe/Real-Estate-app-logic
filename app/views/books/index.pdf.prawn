@@ -1,6 +1,6 @@
 pdf.text "Sample PDF"
 
-  pdf.text "Book:",:style => :bold 
+  pdf.text "Document:",:style => :bold 
  pdf.text @books.title
   pdf.text "Author:" 
 pdf.text @books.author 
