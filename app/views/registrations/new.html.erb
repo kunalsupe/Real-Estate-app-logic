@@ -14,13 +14,12 @@
 <p><label><%= f.label :email %></label> 
 <div class="input large">   <%= f.text_field :email %></p>   </div> 
 
- <% if @user.password_required? %> 
   <p><label><%= f.label :password %></label> 
 <div class="input large">  <%= f.password_field :password %></p> </div> 
 
  <p><label><%= f.label :password_confirmation %></label> 
 <div class="input large">  <%= f.password_field :password_confirmation %></p>   </div> 
-<% end %>
+
 
  <div class="button">  <div id="button"> <%= f.submit "Sign up" %></div> </div> 
 <% end %>
