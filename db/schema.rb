@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(:version => 20110808071609) do
     t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "token"
   end
 
   create_table "books", :force => true do |t|
