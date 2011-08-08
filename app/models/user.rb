@@ -1,4 +1,5 @@
-class User < ActiveRecord::Base
+class User < ActiveRecord::Base 
+   validates_presence_of :password, :password_confirmation
   has_many :authentications
   has_many :books
   # Include default devise modules. Others available are:
