@@ -13,14 +13,7 @@ class User < ActiveRecord::Base
     self.email = omniauth['user_info']['email'] if email.blank?
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
   end
-  
-  def self.create_with_omniauth(omniauth)  
-      create! do |user|  
-        user.provider = omniauth["provider"]  
-      #  user.uid = omniauth["uid"]  
-       # user.name = omniauth["user_info"]["name"]  
-      end  
-    end     
+   
   
   def password_required?
     (authentications.empty? || !password.blank?) && super  
