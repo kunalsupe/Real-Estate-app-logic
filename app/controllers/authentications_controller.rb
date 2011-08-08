@@ -23,14 +23,9 @@ class AuthenticationsController < ApplicationController
       if user.save
         flash[:notice] = "Signed in successfully."
         sign_in_and_redirect(:user, user)
-      else    
-        authentication = Authentication.find_for_facebook_oauth(omniauth['provider'])
-        if authentication
-          flash[:notice] = "Signed in successfully."
-          sign_in_and_redirect(:user, authentication.user) 
-         end 
-       # session[:omniauth] = omniauth.except('extra')
-       #redirect_to new_user_registration_url
+      else
+        session[:omniauth] = omniauth
+        redirect_to new_user_registration_url
       end
     end
   end

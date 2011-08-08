@@ -10,9 +10,17 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   
   def apply_omniauth(omniauth)
-    self.email = omniauth['user_info']['email'] if email.blank?
-    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+    case omniauth['provider']
+    when 'facebook'
+      self.apply_facebook(omniauth)
+    end
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'], :token =>(omniauth['credentials']['token'] rescue nil))
   end
+  
+  def facebook
+    @fb_user ||= FbGraph::User.me(self.authentications.find_by_provider('facebook').token)
+  end
+  
    
   
   def password_required?
@@ -29,12 +37,11 @@ class User < ActiveRecord::Base
       update_attributes(params) 
     end
      
-    def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
-      data = access_token['extra']['user_hash']
-      if user = User.find_by_email(data["email"])
-        user
-      else # Create a user with a stub password. 
-        User.create!(:email => data["email"], :password => Devise.friendly_token[0,20]) 
+         protected
+
+    def apply_facebook(omniauth)
+      if (extra = omniauth['extra']['user_hash'] rescue false)
+        self.email = (extra['email'] rescue '')
       end
     end
  
