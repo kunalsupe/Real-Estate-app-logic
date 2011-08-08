@@ -22,7 +22,7 @@ class AuthenticationsController < ApplicationController
         sign_in_and_redirect(:user, user)
       else
         session[:omniauth] = omniauth.except('extra')
-        redirect_to authentications_url
+        redirect_to new_user_registration_url
       end
     end
   end
