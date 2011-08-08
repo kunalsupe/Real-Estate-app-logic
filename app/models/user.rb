@@ -10,24 +10,19 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   
 def apply_omniauth(omniauth)
-  #case omniauth['provider']
-   # when 'facebook'
-    #  self.apply_facebook(omniauth)   
-     # when 'twitter'
+  case omniauth['provider']
+    when 'facebook'
+      self.apply_facebook(omniauth)   
+      when 'twitter'
         self.email = omniauth['user_info']['email'] if email.blank?
           authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
- 
-
-      # when 'linked-in'
-       #  self.email = omniauth['user_info']['email'] if email.blank?
-        #   authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+    
+       when 'linked-in'
+         self.email = omniauth['user_info']['email'] if email.blank?
+           authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
       
- # end   
-         
- 
- 
+  end   
 
-  
 end  
   
   
