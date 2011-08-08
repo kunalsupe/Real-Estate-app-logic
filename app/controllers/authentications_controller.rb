@@ -2,7 +2,10 @@ class AuthenticationsController < ApplicationController
   def index
     @authentications = current_user.authentications if current_user
   end    
-
+   
+  def failure
+  redirect_to login_url, :flash => {:error => "Could not log you in. #{params[:message]}"}
+  end
   
   def create
     omniauth = request.env["omniauth.auth"]

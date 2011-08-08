@@ -1,6 +1,6 @@
 Todo::Application.routes.draw do
   resources :books
-
+  match ‘/auth/failure’, :to => ‘authentications#failure’
   match '/auth/:provider/callback' => 'authentications#create'  
   match '/showmybook', :controller => 'books', :action => 'showmybook'
   devise_for :users, :controllers => {:registrations => 'registrations'}
