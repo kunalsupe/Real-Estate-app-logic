@@ -10,11 +10,11 @@
 
 <p><label><%= f.label :name %> </label>
 <div class="input large">  <%= f.text_field :name %></p>  </div>
-
+     
 <p><label><%= f.label :email %></label> 
 <div class="input large">   <%= f.text_field :email %></p>   </div> 
 
-  <% if @user.password_required? %> 
+ <% if @user.password_required? %> 
   <p><label><%= f.label :password %></label> 
 <div class="input large">  <%= f.password_field :password %></p> </div> 
 
