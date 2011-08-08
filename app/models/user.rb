@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :books
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
-  devise :database_authenticatable, :registerable,
+  devise :registerable,
          :recoverable, :rememberable, :trackable
  
   # Setup accessible (or protected) attributes for your model
