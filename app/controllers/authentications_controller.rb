@@ -27,7 +27,7 @@ class AuthenticationsController < ApplicationController
       #  session[:omniauth] = omniauth.except('extra')
        # redirect_to new_user_registration_url
      # end
-    end
+  #  end
   end
   
   def destroy
