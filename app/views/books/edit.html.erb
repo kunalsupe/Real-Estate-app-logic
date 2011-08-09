@@ -26,8 +26,12 @@
 <p><label>    <%= f.label :title %> </label>
 <div class="input large"> <%= f.text_field :title %> </div>
 
+<p><label>    <%= f.label :author %> </label>
+<div class="input large"> <%= f.text_field :author, :value => @user.name %> </div>
 
-  
+<p><label>    <%= f.label :created_at %> </label>
+<div class="input large"> <%= f.text_field :created_at %> </div>      
+
 <p><label>    <%= f.label :description %></label>   
 <div class="input large">      <%= f.text_area :description %></div>
   

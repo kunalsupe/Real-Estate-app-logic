@@ -6,33 +6,20 @@
 <!--  START PRIMARY CONTENT -->
 <div id="primary_content">
 <h5>List of Documents</h5>
+<%= form_tag books_path, :method => 'get', :id => "books_search" do %>
+	  <p>
+	    <%= text_field_tag :search, params[:search] %>
+	    <%= submit_tag "Search", :name => nil %>
+	  </p>                                               
+	
+	 <div id="books"> <%= render 'books' %></div>
+      <% end %> 
 
+ 
 
-<table class="tablesorter" id="myTable"> 
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Description</th>
-    <th>Action</th>
    
-  </tr>
-
-<% @books.each do |book| %>
-  <tr>
-    <td><%= book.title %></td>
-    <td><%= book.author %></td>
-    <td> <%= truncate(book.description, 20) %>
-
-</td>
-    
-    <td> <div class="button">  <div id="button"><%= link_to 'View', book %> </div> </div>  </td>   
-
-                    
-
-  </tr>
-<% end %>
-</table>
-
+	
+   
 <br />
 
 <%= link_to 'Create New Document', new_book_path %>  

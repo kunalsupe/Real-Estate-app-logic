@@ -2,7 +2,8 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.xml
   def index
-    @books = Book.all     
+   # @books = Book.all    
+     @books = Book.search(params[:search]).paginate(:per_page => 4, :page => params[:page]) 
       if current_user
         a = current_user  
 
@@ -15,7 +16,13 @@ class BooksController < ApplicationController
     end
     end
   end  
-  
+       
+       def calender
+            @books = Book.find(:all)
+           @date = params[:month] ? Date.parse(params[:month]) : Date.today  
+          
+         end  
+
   def showmybook
     @book = Book.all
         
@@ -36,7 +43,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.xml
   def show
-    @book = Book.find(params[:id])  
+     @book = Book.find(params[:id])   
     if current_user
     # @a = current_user.id    
      # @b = @book.author_id
@@ -72,7 +79,9 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
-    @book = Book.find(params[:id])
+    @book = Book.find(params[:id])  
+    a = current_user
+     @user = User.find(a)
   end
 
   # POST /books

@@ -1,0 +1,28 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %> 
+<table class="tablesorter" id="myTable"> 
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Description</th>
+    <th>Action</th>
+   
+  </tr>
+
+<% @books.each do |book| %>
+  <tr>
+    <td><%= book.title %></td>
+    <td><%= book.author %></td>
+    <td> <%= truncate(book.description, 20) %>
+
+</td>
+    
+    <td> <div ><%= link_to 'View', book %> </div> </div>  </td>              
+   
+
+                    
+
+  </tr>
+<% end %>
+</table>
+<%= will_paginate  %>
