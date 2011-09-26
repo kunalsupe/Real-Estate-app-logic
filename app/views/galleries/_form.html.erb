@@ -1,0 +1,19 @@
+<%= form_for @gallery, :html => { :multipart => true } do |f| %>
+  <%= f.hidden_field :property_id %>
+  <%= f.error_messages %>   
+  
+
+
+    <span id ="newfile_data">    <%= f.file_field :photo %>   </span>
+      
+      <div id="attachment_list"><ul id="pending_files"></ul></div>
+
+  </p>
+
+
+   
+  <p><%= f.submit %></p>
+<% end %>
+    
+
+ 

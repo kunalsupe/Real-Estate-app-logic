@@ -1,0 +1,54 @@
+
+
+<!--  START CONTENT -->
+<div id="content_wrapper">
+
+<!--  START PRIMARY CONTENT -->
+<div id="primary_content">
+
+
+
+<h5>My Properties </h5>
+<table class="tablesorter" id="myTable"> 
+  <tr>
+    <th>Title</th>
+    <th>Builder</th>
+    <th>Address</th> 
+    <th>City</th>
+    <th>Country</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Action</th>
+
+  </tr>
+
+<% @b.each do |property| %>
+ <tr>
+    <td><%= property.title %></td>
+    <td><%= property.builder %></td> 
+	<td><%= property.address %></td>
+    <td><%= property.city %></td>
+	<td><%= property.country %></td>
+    <td><%= property.price %></td>
+    <td> <%= truncate(property.description, 20) %>
+
+</td>
+
+    <td> <div ><%= link_to 'View', property %> </div> </div>  </td>              
+
+
+
+
+  
+                    
+
+  </tr>
+<% end %>
+</table>
+  
+<br />
+
+<%= link_to 'Add a Property', new_property_path %>  
+ 
+
+

@@ -1,0 +1,39 @@
+<%= form_for @specification do |f| %>
+  <%= f.hidden_field :property_id %>
+  <%= f.error_messages %>
+  <p> 
+<table>
+<tr>
+<td>
+    <%= f.label :beds %>
+    <%= f.text_field :beds %> 
+</td>
+
+<td>
+    <%= f.label :bathrooms %>
+    <%= f.text_field :bathrooms %>  
+</td>
+
+<td>
+    <%= f.label :kitchens %>
+    <%= f.text_field :kitchens %>
+</td>     </tr></table>  
+<table>
+<tr>                 
+<td> 
+    <%= f.label :year_build %>
+    <%= f.text_field :year_build %>
+</td>
+<td>
+    <%= f.label :floor %>
+    <%= f.text_field :floor %>
+</td>
+<td>
+    <%= f.label :condition %>
+    <%= f.text_field :condition %>
+</td>
+</tr></table>  
+</p>
+
+  <p><%= f.submit %></p>
+<% end %>

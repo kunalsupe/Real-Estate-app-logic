@@ -10,7 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110808071609) do
+ActiveRecord::Schema.define(:version => 20110925141940) do
+
+  create_table "amenities", :force => true do |t|
+    t.string   "playarea"
+    t.string   "tar_roads"
+    t.string   "club_house"
+    t.string   "swimming_pool"
+    t.string   "party_hall"
+    t.string   "health_club"
+    t.string   "garden"
+    t.string   "security"
+    t.string   "intercom"
+    t.string   "property_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -18,19 +33,101 @@ ActiveRecord::Schema.define(:version => 20110808071609) do
     t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "token"
   end
 
   create_table "books", :force => true do |t|
     t.string   "title"
     t.string   "author"
     t.text     "description"
+    t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "author_id"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enquiries", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "profession"
+    t.integer  "contact"
+    t.text     "message"
+    t.integer  "property_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "floorplans", :force => true do |t|
+    t.string   "title"
+    t.integer  "property_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+  end
+
+  create_table "galleries", :force => true do |t|
+    t.string   "title"
+    t.integer  "property_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   create_table "projects", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "properties", :force => true do |t|
+    t.string   "title"
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
+    t.string   "price"
+    t.integer  "featured"
+    t.text     "description"
+    t.integer  "builder_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "builder"
+    t.string   "state"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "rate"
+    t.string   "comment_title"
+    t.string   "comment"
+    t.integer  "approved"
+    t.integer  "property_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "specifications", :force => true do |t|
+    t.integer  "beds"
+    t.integer  "bathrooms"
+    t.integer  "kitchens"
+    t.string   "year_build"
+    t.integer  "floor"
+    t.string   "condition"
+    t.integer  "property_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,7 +143,6 @@ ActiveRecord::Schema.define(:version => 20110808071609) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -55,12 +151,12 @@ ActiveRecord::Schema.define(:version => 20110808071609) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",                 :limit => 50
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

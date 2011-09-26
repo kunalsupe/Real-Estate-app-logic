@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rate: 1
+  comment_title: MyString
+  comment: MyString
+  approved: 1
+  property_id: 1
+
+two:
+  rate: 1
+  comment_title: MyString
+  comment: MyString
+  approved: 1
+  property_id: 1

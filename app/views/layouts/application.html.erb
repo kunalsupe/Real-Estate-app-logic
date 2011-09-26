@@ -1,13 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Kunal Infotech - Sample Oauth Example" %></title>
-    <%= stylesheet_link_tag "application" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title><%= content_for?(:title) ? yield(:title) : "Kunaal's Housing - Property Manager" %></title>
+
+ <%= stylesheet_link_tag "application" %>
 <%= stylesheet_link_tag "facebox" %>
 <%= stylesheet_link_tag "navigation" %>
 <%= stylesheet_link_tag "reset" %>
 <%= stylesheet_link_tag "scaffold" %>
-<%= stylesheet_link_tag "styles" %>  
+<%= stylesheet_link_tag "styles" %>   
+
 
 <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "jquery.rails.js" %>
 <%= csrf_meta_tag %>
@@ -21,64 +25,121 @@
 	<script type="text/javascript" src="/javascripts/controls.js"></script>
 	<script type="text/javascript" src="/javascripts/prototype.js"></script>
 	<script type="text/javascript" src="/javascripts/dragdrop.js"></script> 
-	<script type="text/javascript" src="/javascripts/facebox.js"></script>
+	<script type="text/javascript" src="/javascripts/facebox.js"></script> 
+	<script type="text/javascript" src="/javascripts/graphs.js" ></script>
+	<script type="text/javascript" src="/javascripts/multifile.js" ></script>       
+	<script type="text/javascript" src="/javascripts/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.flot.pack.js"></script>
+	
 	<script type="text/javascript" src="/javascripts/jquery.tablesorter.min.js"></script>
 	<script type="text/javascript" src="/javascripts/scripts.js"></script>
 	
     <%= csrf_meta_tag %>
-    <%= yield(:head) %>
-  </head>
-  <body>                              
-	   <p align="right"><% if user_signed_in? %> Signed in as <%= current_user.email %>. <% end %>  </p> 
-	<div id="header"><h1>Document Manager</h1></div><!--  end header -->   
-  
-	         
-		 <div id="nav">
-		        <ul>
-		          <li><%= link_to "Home", root_path %></li>
-                   				 <% if user_signed_in? %> 
-           
-		          <li><%= link_to "edit profile", :controller => 'registrations', :action => 'edit' %></li>   
-		           <li><%= link_to "Sign out", destroy_user_session_path %></li> 
-	                <% else %>
-		          <li><%= link_to "Sign In", authentications_path %> </li>   <% end %> 
-		         
-		          
-		      </ul>
-		    </div> <!--  end div #nav -->
- 
+
+<script type="text/javascript" SRC="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+
    
-    <div class="success canhide">
+    <!--[if IE]>
+     <script language="javascript" type="text/javascript" src="js/excanvas.pack.js"></script>
+    <![endif]-->
+    
+    
+    <!--[if IE 6]>
+    <script src="js/pngfix.js"></script>
+    <script>
+        DD_belatedPNG.fix('.png_bg');
+    </script>        
+    <![endif]-->
+
+ 
+    <%= yield(:head) %>
+
+</head>
+
+<body>
+
+<div id="header" class="png_bg">
+
+    <div id="head_wrap" class="container_12">
+    
+        <!-- start of logo - you could replace this with an image of your logo -->
+        <div id="logo" class="grid_4">
+          <h1>Kunaals <span>Housing</span></h1> <br />
+            <h3>Property Manager</h3>
+        </div>
+        <!-- end logo -->
+		 <!-- start control panel -->
+	    	<div id="controlpanel" class="grid_8">
+
+	            <ul>
+                     <li><a href="#" class="first">Settings</a></li> 
+	    			<li><p><% if user_signed_in? %> Signed in as <%= current_user.email %></p></li>
+	                <li><%= link_to "Sign out", destroy_user_session_path %></li>    
+	                 <% else %>
+	                 <li><%= link_to "Sign In", authentications_path %></li>
+	<% end %>
+
+	            </ul>
+
+	        </div>
+	        <!-- end control panel -->
+          
+			  <!-- start navigation -->
+		      	<div id="navigation" class=" grid_12">
+
+		            <ul>
+
+		                <li><%= link_to "Home",  root_path %></li> 
+		<% if user_signed_in? %>
+		                  <li><%= link_to "Dashboard",  properties_path %></li>
+		<% else %>
+		                <li><%= link_to "Sign In", authentications_path %></li>  <% end %> 
+		               
+		                <li><a href="#">Articles</a></li>
+		                <li><a href="#">Even Longer Navigation Link</a></li>
+		                <li><a href="#">Random Link</a></li>
+		                <li><a href="#">Last Link</a></li>
+
+                
+		            </ul>
+
+		        </div>
+		        <!-- end navigation -->
+      			  </div><!-- end headwarp  -->
+			</div><!-- end header -->
+                            
+	
+     <div class="notification lightbulb canhide">    
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
-      <%= yield %>   
+       
       
-    </div>              
-<% if user_signed_in? %> 
-   <!--  START SIDEBAR -->
-   <div id="sidebar">
-		<h3>Sidebar</h3>
-        <ul>
-            <li><img src="/images/001_20.png" width="24" height="24" alt="Home" /><%= link_to 'View Documents', books_path %></li>
-            <li><img src="/images/001_12.png" width="24" height="24" alt="Mail" /><%= link_to 'Create New Document', new_book_path %></li>
-            <li><img src="/images/001_44.png" width="24" height="24" alt="Calendar" /><%= link_to 'My Documents', :controller =>'books', :action => 'showmybook' %> </li>
-           
-            <li><img src="/images/001_43.png" width="24" height="24" alt="Folders" /><li><%= link_to 'Calender', :controller =>'books', :action => 'calender' %></li></li>
-           
-        </ul>
-      </div><!--  end div #sidebar -->
-   <!--  END SIDEBAR -->
+    </div>  
 
-                 <% end %>
-	<!--  START FOOTER -->
-	<div id="footer">© Copyright 2011 KIPL | Powered by <a href="http://www.kunalinfotech.net" target= "_blank" >Kunal Infotech Pvt Ltd</a> | <a href="#">Top</a></div>
+	<!-- EVERYTING BELOW IS THE MAIN CONTENT -->
+
+	<div id="main_content_wrap" class="container_12">
+
+ 
+
+	    <div class="clearfix">&nbsp;</div>
+
+
+ <%= yield %>  
+            
+
+
+                
+   <!-- START FOOTER -->
+
+    <div id="footer" class="grid_12">
+	
+<p>&copy; Copyright 2011 KIPL | Powered by <a href="http://www.kunalinfotech.net" target= "_blank" >Kunal Infotech Pvt Ltd</a> | <a href="#">Top</a></div>
 	<!--  END FOOTER -->       
-
-	</div><!--  end div #wconent_rapper -->
-	<!--  END CONTENT WRAPPER -->
-	</div>
-	<!--  END WRAPPER -->
+     
+</div><!-- end content wrap --> 
+   
   </body>
 </html>

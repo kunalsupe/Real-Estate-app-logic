@@ -1,0 +1,50 @@
+<%= form_for [@property], :html => { :id => 'myform' } do |f| %>
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% @property.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+     
+	
+  <%=  f.hidden_field :builder_id, :value => @user.id %>   
+ <%=  f.hidden_field :builder, :value => @user.name %>   
+
+  
+
+<p><label>    <%= f.label :title %> </label>
+<div class="input large"> <%= f.text_field :title %> </div>
+
+<p><label>    <%= f.label :address %> </label>
+<div class="input large"> <%= f.text_field :address %> </div>
+
+<p><label>    <%= f.label :city %> </label>
+<div class="input large"> <%= f.text_field :city %> </div>
+
+<p><label>    <%= f.label :state %> </label>
+<div class="input large"> <%= f.text_field :state %> </div>
+
+<p><label>    <%= f.label :country %> </label>
+<div class="input large"> <%= f.text_field :country %> </div>
+  
+
+<p><label>    <%= f.label :price %> </label>
+<div class="input large"> <%= f.text_field :price %> </div>
+
+<p><label>    <%= f.label :featured %> </label>
+<div class="input large"> <%= f.text_field :featured %> </div>
+
+<p><label>    <%= f.label :description %></label>   
+<div class="input large">      <%= f.text_area :description %></div>
+  
+<div class="button">  <div id="button"> 
+    <%= f.submit %>
+  </div>      </div>
+<% end %>
+                                 
+

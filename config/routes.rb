@@ -1,12 +1,17 @@
 Todo::Application.routes.draw do
-  resources :books
+  resources :properties
+  resources :specifications
+  resources :amenities 
+  resources :galleries 
+  resources :floorplans
+  resources :front
   match '/auth/failure' => 'authentications#failure' 
   match '/auth/:provider/callback' => 'authentications#create'  
-  match '/showmybook', :controller => 'books', :action => 'showmybook'
-  match '/calender', :controller => 'books', :action => 'calender'
+  match '/showmyproperty', :controller => 'properties', :action => 'showmyproperty'
+  match '/calender', :controller => 'properties', :action => 'calender'
   devise_for :users, :controllers => {:registrations => 'registrations'}
   resources :projects
   resources :tasks
   resources :authentications
-  root :to => "books#index"
+  root :to => "front#show"
 end

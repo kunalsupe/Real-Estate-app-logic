@@ -1,23 +1,35 @@
-<div id="admin_wrapper">
-	<h1>Kunal Infotech -  Example Oauth</h1>
-	
-	<p>Welcome To KIPL.</p>
-	<div class="attention"> <%= link_to "Sign in through Social N/W sites ", authentications_path %></div>
-	
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+<div id="loginform">    
+<div id="admin_wrapper"> 
+<h1>Login<span></span></h1>  
+    
+    <!-- END LOGO -->
+    <p><%= link_to "Sign in through Social N/W sites ", authentications_path %></p>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>   
+      <!-- TEXTBOXES -->
+       <label><%= f.label :email %></label> 
+	<div class="text large required" id="username">   <%= f.text_field :email %>   </div>
+	<br />
+		
+       
+        
+       	<label><%= f.label :password %></label> 
+		<div class="text large required" id="password">  <%= f.password_field :password %> </div>
+  
+
+        <div name="btnLogin" type="submit" class="submit" id="btnLogin"><%= f.submit "Sign in" %> </div>  
+     
+	  <% if devise_mapping.rememberable? -%>   
+     <div class="checkbox" id="cbdemo2"> <%= f.check_box :remember_me %> </div>
+      <label for="cbdemo2"><%= f.label :remember_me %> </label> 
+        
  
- <p><label><%= f.label :email %></label> 
-<div class="input large">   <%= f.text_field :email %></p>   </div>
 
-<p><label><%= f.label :password %></label> 
-<div class="input large">  <%= f.password_field :password %></p> </div>
-
-  <% if devise_mapping.rememberable? -%>                    
-<p><label><%= f.label :remember_me %> </label>
-  <div class="input large"> <%= f.check_box :remember_me %> </div>     
   <% end -%>
 
-<div class="button">  <div id="button">  <p><%= f.submit "Sign in" %></p>  </div> </div> 
+
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<%= render :partial => "devise/shared/links" %>       
+</div>
+</div>

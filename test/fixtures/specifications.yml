@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  beds: 1
+  bathrooms: 1
+  kitchens: 1
+  year_build: MyString
+  floor: 1
+  condition: MyString
+  property_id: 1
+
+two:
+  beds: 1
+  bathrooms: 1
+  kitchens: 1
+  year_build: MyString
+  floor: 1
+  condition: MyString
+  property_id: 1

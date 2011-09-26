@@ -1,0 +1,210 @@
+
+    
+
+   <div class="container_12">
+	
+    <h2> <%= @property.title %>   </h2>	  
+
+	 <div id="sub_nav"> 
+	<div id="subnav_wrap" class="container_12">  <!-- start sub nav list -->
+		<div id="subnav" >
+
+	        <ul>
+
+		<%  if current_user %>
+		<% if @user.id == @property.builder_id %>
+
+	  <li>  <%= link_to 'Edit', edit_property_path(@property), :class => "submit" %>  </li>
+	<li>  <%= link_to "Delete Property",@property, :confirm => "Are you sure?", :method => :delete %>     </li>
+	<li> <%= link_to "Edit Specifications", edit_specification_path %>  </li>
+	<li> <%= link_to "Edit Amenities", edit_amenity_path %>  </li>
+	<li> <%= link_to "Add Photo to Gallery", new_gallery_path(:property_id => @gallery.property_id) %> </li>
+	<li>  <%= link_to "Add Floor Plan", new_floorplan_path(:property_id => @floorplan.property_id) %>  </li>
+		 <% else %>                                   
+		 <% end %>
+
+
+		 <% end %>                    
+
+	<li>	<%= link_to 'Back', properties_path %>  </li>  
+
+		</ul>
+	</div>   </div></div>  
+    <ul class="tabs">
+        <li><a href="#tab1"> <b>Builder:</b>
+		  <%= @property.builder %></a></li>
+       
+    </ul> 
+
+
+<div class="tab_container">
+    <div id="tab1" class="tab_content">
+        <!-- START IMAGE GALLERY -->
+  
+<h2>Image Gallery</h2>
+
+<ul class="imglist">    
+       
+<% @galleries.each do |gallery| %> 
+               
+
+        <li>   <% if gallery.photo.exists? then %>
+
+        	<%= image_tag gallery.photo.url(:thumb) %> 
+        	<div class="actions">	
+				<span rel="facebox"><%= image_tag gallery.photo.url(:small) %> </span>
+				<a href="#" class="imglistbutton"><%= link_to image_tag("/images/cancel.png"), @gallery, :confirm => "Are you sure?", :method => :delete, :class => "imglistbutton" %> </a>
+			</div>
+        
+        </li>
+        <% end %> 
+        <% end %>  
+    
+</ul>
+
+<!-- END IMAGE GALLERY -->
+    </div>        
+
+   <div id="tab2" class="tab_content">
+  
+		<p id="notice"> <%= notice %></p></div>
+
+
+		<p>
+		 
+		</p>
+
+		<p>
+		  <b>Address:</b>
+		  <%= @property.address %>
+		</p>
+
+		<p>
+		  <b>City:</b>
+		  <%= @property.city %>
+		</p>
+              
+		 <p>
+			  <b>State:</b>
+			  <%= @property.state %>
+			</p>
+		<p>
+		  <b>Country:</b>
+		  <%= @property.country %>
+		</p>
+
+		<p>
+		  <b>Price:</b>
+		  <%= @property.price %>
+		</p>
+
+		<p>
+		  <b>Description:</b>
+		  <%= @property.description %>
+		</p>
+		--------------------------------------------------------------------------------------------------------------------------------------
+		<br /> 
+		<b>Specifications</b>  <br />   
+		--------------------------------------------------------------------------------------------------------------------------------------
+		<p>
+		  <b>Beds:</b>
+		  <%= @specification.beds %>
+		</p>
+
+		<p>
+		  <b>Bathrooms:</b>
+		  <%= @specification.bathrooms %>
+		</p>
+
+		<p>
+		  <b>Kitchens:</b>
+		  <%= @specification.kitchens %>
+		</p>
+
+		<p>
+		  <b>Year Build:</b>
+		  <%= @specification.year_build %>
+		</p>
+
+		<p>
+		  <b>Floors:</b>
+		  <%= @specification.floor %>
+		</p>
+
+		<p>
+		  <b>Condition:</b>
+		  <%= @specification.condition %>
+		</p>
+
+		--------------------------------------------------------------------------------------------------------------------------------------
+		<br /> 
+		<b>Amenities</b>  <br />   
+		--------------------------------------------------------------------------------------------------------------------------------------  
+	   
+
+		<p>
+		  <b>Tar Roads:</b>
+		  <%= @amenities.tar_roads %>
+		</p>
+
+		<p>
+		  <b>Club House:</b>
+		  <%= @amenities.club_house %>
+		</p>
+
+		<p>
+		  <b>Swimming Pool:</b>
+		  <%= @amenities.swimming_pool %>
+		</p>
+
+		<p>
+		  <b>Party Hall:</b>
+		  <%= @amenities.party_hall %>
+		</p>
+
+		<p>
+		  <b>Health Club:</b>
+		  <%= @amenities.health_club %>
+		</p>
+
+		<p>
+		  <b>Garden:</b>
+		  <%= @amenities.garden %>
+		</p>
+
+		<p>
+		  <b>24hrs Security:</b>
+		  <%= @amenities.security %>
+		</p>
+
+		<p>
+		  <b>Intercom Facility:</b>
+		  <%= @amenities.intercom %>
+		</p>    
+    
+   
+      
+		<h2>Floor Plans</h2>
+
+		<ul class="imglist">   
+		<% @floorplans.each do |plan| %>
+     <li>
+
+		<% if plan.photo.exists? then %>
+			<%= image_tag plan.photo.url(:thumb) %>  
+			<div class="flooractions"> <span rel="facebox"><%= image_tag plan.photo.url(:small) %> </span>   
+			 <a href="#" class="imglistbutton"><%= link_to image_tag("/images/cancel.png"), @floorplan, :confirm => "Are you sure?", :method => :delete, :class => "imglistbutton" %> </a>
+			</div> 
+		  </li>     
+		<% end %>
+		 <% end %>
+        
+
+
+		 </ul>
+       
+    </div>    
+
+   
+</div>
+

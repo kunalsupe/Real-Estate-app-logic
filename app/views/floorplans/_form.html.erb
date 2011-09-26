@@ -1,0 +1,13 @@
+<%= form_for @floor_plan, :html => { :multipart => true } do |f| %>
+  <%= f.hidden_field :property_id %>
+  <%= f.error_messages %>   
+
+<p>
+    <%= f.label :title %>
+     <%= f.text_field :title %>
+</p>   
+
+   <%= f.file_field :photo %>
+	
+  <p><%= f.submit %></p>
+<% end %>

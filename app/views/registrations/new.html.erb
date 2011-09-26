@@ -1,24 +1,22 @@
 <div id="admin_wrapper">
-	<h1>Kunal Infotech -  Example Oauth</h1>
-	
-	<p>Welcome To KIPL.</p>
+	<h1>Sign-up</h1>
 	
 	<div class="attention">Sign up or <%= link_to "Sign in through Social N/W sites ", authentications_path %></div>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-<p><label><%= f.label :name %> </label>
-<div class="input large">  <%= f.text_field :name %></p>  </div>
+<label><%= f.label :name %> </label>
+<div class="text large required" id="username">  <%= f.text_field :name %> </div>
      
-<p><label><%= f.label :email %></label> 
-<div class="input large">   <%= f.text_field :email %></p>   </div> 
+<label><%= f.label :email %></label> 
+<div class="text large required" id="username">   <%= f.text_field :email %> </div> 
 
-  <p><label><%= f.label :password %></label> 
-<div class="input large">  <%= f.password_field :password %></p> </div> 
+  <label><%= f.label :password %></label> 
+<div  class="text large required" id="password">  <%= f.password_field :password %> </div> 
 
- <p><label><%= f.label :password_confirmation %></label> 
-<div class="input large">  <%= f.password_field :password_confirmation %></p>   </div> 
+<label><%= f.label :password_confirmation %></label> 
+<div  class="text large required" id="password">  <%= f.password_field :password_confirmation %>  </div> 
 
 
  <div class="button">  <div id="button"> <%= f.submit "Sign up" %></div> </div> 

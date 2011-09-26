@@ -19,13 +19,13 @@
 }
 
 #facebox .content {
-  display:table;
-  width: 370px;
-  padding: 10px;
-  background: #fff;
-  -webkit-border-radius:4px;
-  -moz-border-radius:4px;
-  border-radius:4px;
+	display:table;
+	width: 475px;
+	padding: 20px;
+	background: #fff;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
 }
 
 #facebox .content > p:first-child{
@@ -43,7 +43,7 @@
   background:#fff;
 }
 #facebox .close img{
-  opacity:0.3;
+	opacity:0.5;
 }
 #facebox .close:hover img{
   opacity:1.0;

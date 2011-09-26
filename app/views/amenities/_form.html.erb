@@ -1,0 +1,47 @@
+<%= form_for @amenities do |f| %>
+  <%= f.hidden_field :property_id %>
+  <%= f.error_messages %>   
+
+
+
+  <p>
+
+    
+   <input name="amenities[tar_roads]" type="hidden" value="No" />  
+   <input type="checkbox" id="amenities_tar_roads" name="amenities[tar_roads]" value="Yes" />   <%= f.label :tar_roads %> 
+
+    
+   <input name="amenities[club_house]" type="hidden" value="No" />  
+   <input type="checkbox" id="amenities_club_house" name="amenities[club_house]" value="Yes" /><%= f.label :club_house %>    
+ 
+   
+   <input name="amenities[swimming_pool]" type="hidden" value="No" />  
+   <input type="checkbox" id="amenities_swimming_pool" name="amenities[swimming_pool]" value="Yes" />  <%= f.label :swimming_pool %> 
+  
+  
+   <input name="amenities[party_hall]" type="hidden" value="No" />  
+   <input type="checkbox" id="amenities_party_hall" name="amenities[party_hall]" value="Yes" />    <%= f.label :party_hall %> 
+  </p>
+<p>
+    
+   <input name="amenities[health_club]" type="hidden" value="No" />  
+   <input type="checkbox" id="amenities_health_club" name="amenities[health_club]" value="Yes" />     <%= f.label :health_club %> 
+ 
+   
+   <input name="amenities[garden]" type="hidden" value="No" />  
+   <input type="checkbox" id="amenities_garden" name="amenities[garden]" value="Yes" /> 
+ <%= f.label :garden %> 
+  
+    
+   <input name="amenities[security]" type="hidden" value="No" />  
+   <input type="checkbox" id="amenities_security" name="amenities[security]" value="Yes" />   <%= f.label :security %>
+
+   
+   <input name="amenities[intercom]" type="hidden" value="No" />  
+   <input type="checkbox" id="amenities_intercom" name="amenities[intercom]" value="Yes" />   <%= f.label :intercom %>
+  </p>
+
+  
+
+  <p><%= f.submit %></p>
+<% end %>

@@ -1,7 +1,7 @@
 development:
      host: localhost
      adapter: mysql
-     database: document2
+     database: kh
      port: 3306
      username: root
      password: 
@@ -9,7 +9,7 @@ development:
 test: &test
      host: localhost
      adapter: mysql
-     database: document2_test
+     database: kh_test
      port: 3306
      username: root
      password: 
@@ -17,7 +17,7 @@ test: &test
 production:
      host: localhost
      adapter: mysql
-     database: document2
+     database: kh
      port: 3306
      username: root
      password: 

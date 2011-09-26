@@ -1,0 +1,36 @@
+
+<% if user_signed_in? %> 
+		<!-- start icon dock-->
+		<div id="icondock" class="grid_12">
+
+	      <ul>
+
+				<li><img SRC="/images/icondock/book_addresses.png" alt="Contacts" /><br /><%= link_to 'View Properties', properties_path %><span><%= @counter %></span></li>
+	            <li><img SRC="/images/icondock/basket.png" alt="Orders" /><br /><%= link_to 'Add a Property', new_property_path %></li>
+	            <li><img SRC="/images/icondock/chart_bar.png" alt="Stats" /><br /><%= link_to 'My Properties', :controller =>'properties', :action => 'showmyproperty' %> <span><%= @mycounter %></span></li>
+	            <li><img SRC="/images/icondock/date.png" alt="Events" /><br /><%= link_to 'Calender', :controller =>'properties', :action => 'calender' %></li>
+	            <li><img SRC="/images/icondock/user.png" alt="Users" /><br /><%= link_to "Edit Profile", :controller => 'registrations', :action => 'edit' %></li>
+	            
+
+		  </ul>
+
+        
+		</div><!-- end icon dock-->
+ <% end %> 
+<h5>Search by City</h5>  
+<%= form_tag properties_path, :method => 'get', :id => "properties_search" do %>
+	  <p>
+	    <%= text_field_tag :search, params[:search] %>
+	    <%= submit_tag "Search", :name => nil %>
+	  </p>                                               
+ <h5>List of Properties</h5>     
+	 <div id="properties"> <%= render 'properties' %></div>
+      <% end %> 
+
+   
+<br />
+
+<%= link_to 'Add a Property', new_property_path %>  
+
+
+

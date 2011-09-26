@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  playarea: 1
+  tar_roads: 1
+  club_house: 1
+  swimming_pool: 1
+  party_hall: 1
+  health_club: 1
+  garden: 1
+  security: 1
+  intercom: 1
+  property_id: 1
+
+two:
+  playarea: 1
+  tar_roads: 1
+  club_house: 1
+  swimming_pool: 1
+  party_hall: 1
+  health_club: 1
+  garden: 1
+  security: 1
+  intercom: 1
+  property_id: 1
