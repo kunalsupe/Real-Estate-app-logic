@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/railsdog/searchlogic.git
-  revision: 92487f9773b01d27a350c71d0e12fc0124b866b2
-  specs:
-    rd_searchlogic (3.0.1)
-      activerecord (>= 3.0.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -209,5 +202,4 @@ DEPENDENCIES
   passport
   prawn
   rails (= 3.0.7)
-  rd_searchlogic!
   will_paginate (= 3.0.pre2)
