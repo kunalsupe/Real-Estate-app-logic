@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(:version => 20110928021548) do
   add_index "rates", ["rater_id"], :name => "index_rates_on_rater_id"
 
   create_table "ratings", :force => true do |t|
-    t.integer  "rate"
+    t.integer  "rate",          :default => 0
     t.string   "comment_title"
     t.string   "comment"
     t.integer  "approved"
