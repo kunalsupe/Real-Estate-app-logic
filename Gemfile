@@ -14,4 +14,4 @@ gem 'jquery-rails'
 gem 'cocaine'
 gem 'aws-s3'
 gem 'ajaxful_rating', '3.0.0.beta3'
-gem 'rd_searchlogic', :require => 'searchlogic', :git => 'git://github.com/railsdog/searchlogic.git'
+
