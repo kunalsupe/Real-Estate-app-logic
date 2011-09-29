@@ -15,7 +15,7 @@
   <%=  f.hidden_field :builder_id, :value => @user.id %>   
  <%=  f.hidden_field :builder, :value => @user.name %>   
 
-  
+ <%= select("property", "cat_id", Category.find(:all,:order => "title asc").collect {|c| [ c.title, c.id ] }, {:prompt => 'Select'}) %> 
 
 <p><label>    <%= f.label :title %> </label>
 <div class="input large"> <%= f.text_field :title %> </div>
@@ -29,16 +29,14 @@
 <p><label>    <%= f.label :state %> </label>
 <div class="input large"> <%= f.text_field :state %> </div>
 
-<p><label>    <%= f.label :country %> </label>
-<div class="input large"> <%= f.text_field :country %> </div>
+<p><label>    <%= f.label :country %> </label></p>
+<%= select("property", "country", Country.find(:all,:order => "name asc").collect {|c| [ c.name, c.name ] }, {:prompt => 'Select'}) %>
   
 
 <p><label>    <%= f.label :price %> </label>
 <div class="input large"> <%= f.text_field :price %> </div>
 
-<p><label>    <%= f.label :featured %> </label>
-<div class="input large"> <%= f.text_field :featured %> </div>
-
+ 
 <p><label>    <%= f.label :description %></label>   
 <div class="input large">      <%= f.text_area :description %></div>
   

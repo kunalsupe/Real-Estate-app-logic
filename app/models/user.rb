@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base 
-  
+  ajaxful_rater
   has_many :authentications
   has_many :books
   has_many :properties
@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
  
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  
+ 
   
   def apply_omniauth(omniauth)
     case omniauth['provider']
@@ -44,6 +46,8 @@ class User < ActiveRecord::Base
       if (extra = omniauth['extra']['user_hash'] rescue false)
         self.email = (extra['email'] rescue '')
       end
-    end
+    end 
+    
+   
  
 end

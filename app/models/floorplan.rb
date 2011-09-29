@@ -7,6 +7,7 @@ class Floorplan < ActiveRecord::Base
           :styles => {
           :thumb => "100x100#",
           :small  => "400x400>" },
+          :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
           :url => "/assets/floorplan/photos/:id/:style/:basename.:extension",  
           :path => ":rails_root/public/assets/floorplan/photos/:id/:style/:basename.:extension"
 end

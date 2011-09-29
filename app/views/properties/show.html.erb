@@ -1,6 +1,4 @@
 
-    
-
    <div class="container_12">
 	
     <h2> <%= @property.title %>   </h2>	  
@@ -11,8 +9,8 @@
 
 	        <ul>
 
-		<%  if current_user %>
-		<% if @user.id == @property.builder_id %>
+		<%  if current_user  %>
+		<% if @user.id == @property.builder_id or current_user.admin? %>
 
 	  <li>  <%= link_to 'Edit', edit_property_path(@property), :class => "submit" %>  </li>
 	<li>  <%= link_to "Delete Property",@property, :confirm => "Are you sure?", :method => :delete %>     </li>
@@ -35,12 +33,14 @@
 		  <%= @property.builder %></a></li>
        
     </ul> 
-
+   
 
 <div class="tab_container">
     <div id="tab1" class="tab_content">
         <!-- START IMAGE GALLERY -->
-  
+ <p align ="right">		 <% if @property.featured == 1 %> 
+		  <%= link_to image_tag("/images/recommend.jpg") %>   </td>              
+			 <% else %> <% end %></p> 
 <h2>Image Gallery</h2>
 
 <ul class="imglist">    
@@ -53,7 +53,7 @@
         	<%= image_tag gallery.photo.url(:thumb) %> 
         	<div class="actions">	
 				<span rel="facebox"><%= image_tag gallery.photo.url(:small) %> </span>
-				<a href="#" class="imglistbutton"><%= link_to image_tag("/images/cancel.png"), @gallery, :confirm => "Are you sure?", :method => :delete, :class => "imglistbutton" %> </a>
+				<%= link_to image_tag("/images/cancel.png"), @gallery, :confirm => "Are you sure?", :method => :delete, :class => "imglistbutton" %> 
 			</div>
         
         </li>
@@ -64,16 +64,20 @@
 
 <!-- END IMAGE GALLERY -->
     </div>        
-
+  <br /> <br /> <br /> <br /> 
+<table>
+<tr> 
+<td>
    <div id="tab2" class="tab_content">
   
-		<p id="notice"> <%= notice %></p></div>
+		</div>
+    
+ 	   
 
+    <b>Details</b>  <br />  
 
-		<p>
-		 
-		</p>
-
+          <p><b>Ratings:</b> 
+<%= @ratings %></p> 
 		<p>
 		  <b>Address:</b>
 		  <%= @property.address %>
@@ -102,10 +106,12 @@
 		  <b>Description:</b>
 		  <%= @property.description %>
 		</p>
-		--------------------------------------------------------------------------------------------------------------------------------------
-		<br /> 
+   </td>  <td></td>
+
+<td>   
+ 
 		<b>Specifications</b>  <br />   
-		--------------------------------------------------------------------------------------------------------------------------------------
+
 		<p>
 		  <b>Beds:</b>
 		  <%= @specification.beds %>
@@ -136,10 +142,11 @@
 		  <%= @specification.condition %>
 		</p>
 
-		--------------------------------------------------------------------------------------------------------------------------------------
-		<br /> 
+	    </td>   <td></td>     <td>
+  
+
 		<b>Amenities</b>  <br />   
-		--------------------------------------------------------------------------------------------------------------------------------------  
+
 	   
 
 		<p>
@@ -181,7 +188,19 @@
 		  <b>Intercom Facility:</b>
 		  <%= @amenities.intercom %>
 		</p>    
-    
+</td>           <td></td>     <td>
+
+                            <% if @property.sold == 1 %>  
+                                        <%= image_tag("/images/sold.jpg") %>
+                     		<% elsif @property.cat_id == 1 %>
+						                <%= image_tag("/images/sale.jpg") %>
+	                        <% elsif @property.cat_id == 2 %>
+					                    <%= image_tag("/images/rent.jpg") %>
+                   <% end %>
+
+</td>
+</tr>
+</table>  
    
       
 		<h2>Floor Plans</h2>
@@ -193,7 +212,7 @@
 		<% if plan.photo.exists? then %>
 			<%= image_tag plan.photo.url(:thumb) %>  
 			<div class="flooractions"> <span rel="facebox"><%= image_tag plan.photo.url(:small) %> </span>   
-			 <a href="#" class="imglistbutton"><%= link_to image_tag("/images/cancel.png"), @floorplan, :confirm => "Are you sure?", :method => :delete, :class => "imglistbutton" %> </a>
+			 <%= link_to image_tag("/images/cancel.png"), @floorplan, :confirm => "Are you sure?", :method => :delete, :class => "imglistbutton" %> 
 			</div> 
 		  </li>     
 		<% end %>

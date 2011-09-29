@@ -16,7 +16,7 @@
   <% end %>
      
 	
- 
+  <%= select("property", "cat_id", Category.find(:all,:order => "title asc").collect {|c| [ c.title, c.id ] }, {:prompt => 'Select'}) %>  
   
 
 <p><label>    <%= f.label :title %> </label>
@@ -31,14 +31,25 @@
 <p><label>    <%= f.label :state %> </label>
 <div class="input large"> <%= f.text_field :state %> </div>
 
-<p><label>    <%= f.label :country %> </label>
-<div class="input large"> <%= f.text_field :country %> </div> 
+<p><label>    <%= f.label :country %> </label></p>
+<%= select("property", "country", Country.find(:all,:order => "name asc").collect {|c| [ c.name, c.name ] }, {:prompt => 'Select'}) %>
 
 <p><label>    <%= f.label :price %> </label>
-<div class="input large"> <%= f.text_field :price %> </div>
+<div class="input large"> <%= f.text_field :price %> </div>     
 
-<p><label>    <%= f.label :featured %> </label>
-<div class="input large"> <%= f.text_field :featured %> </div>
+    <p><%= f.label :sold %>    
+   <b>Yes</b> <%= radio_button("property","sold","1") %> <b>NO</b>        
+       <%= radio_button("property","sold","0") %>                                                               
+  
+	 <% if current_user.admin? %> 
+
+	<p><%= f.label :featured %> 
+	<b>Yes</b> <%= radio_button("property","featured","1") %> <b>NO</b>        
+	      <%= radio_button("property","featured","0") %> 
+
+	<% end %>
+
+
 
 <p><label>    <%= f.label :description %></label>   
 <div class="input large">      <%= f.text_area :description %></div>
@@ -46,6 +57,6 @@
 <div class="button">  <div id="button"> 
     <%= f.submit %>
   </div>      </div>
-<% end %>
+<% end %>  
 
 <%= link_to 'Back', properties_path %>

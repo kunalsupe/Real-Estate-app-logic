@@ -37,7 +37,8 @@
 
 				<ul id="nav">
 					<li><a href="#features" class="scroll">Features</a></li>
-					<li><a href="#contact" class="scroll">Contact</a></li>
+					<li><a href="#contact" class="scroll">Contact</a></li> 
+				   
 				</ul>
 
 			</div> <!-- end top -->
@@ -74,7 +75,11 @@
 				 <% if user_signed_in? %>
                              				 <div id="call_to_action">
 						<%= link_to "Go to Property Manager", properties_path %>
-					</div>
+					</div>                      
+					
+				
+					
+					
 					<% else %>
 				<div id="call_to_action">
 					<%= link_to "Sign In", authentications_path %>
@@ -226,27 +231,13 @@
 				</ul>
 
 			</div>
-
-			<div id="contact">
-
-				<h3>Drop us a line</h3>
-				<form id="chatform" action="#" method="">
-					<ul>
-						<li id="name_wrap"><label for="name"><span>Your name</span></label><input id="name" name="name" type="text" value="" maxlength="50"/></li>
-						<li id="email_wrap"><label for="email"><span>Your email</span></label><input id="email" name="email" type="text" value="" maxlength="50"/></li>
-						<li id="message_wrap"><label for="message"><span>Message</span></label><textarea id="message" name="message" rows="4" cols="45"></textarea></li>
-						<li id="check_wrap">
-														<span>
-								<span id="n1">1</span> <span>+</span> <span id="n2">3</span> <span>=</span>
-							</span>
-							<input id="check" type="text" />
-						</li>
-						<li id="submit_wrap"><button id="submit" type="button">send</button></li>
-					</ul>
-				</form>
-				<div id="confirmation"></div>
-
-			</div>
+                      	<div id="contact">         
+	                   
+	
+	                <%= yield %>
+	
+	
+	              </div>
 
 			<a id="back_to_top" class="top scroll" href="#top">top</a>
 
@@ -263,9 +254,9 @@
 	</div> <!-- end footer wrap -->
 
 	<script type="text/javascript" SRC="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-	<script type="text/javascript" SRC="scripts/lightbox.js"></script>
-	<script type="text/javascript" SRC="scripts/slider.js"></script>
-	<script type="text/javascript" SRC="scripts/validation.js"></script>
+	<script type="text/javascript" SRC="/front/scripts/lightbox.js"></script>
+	<script type="text/javascript" SRC="/front/scripts/slider.js"></script>
+	<script type="text/javascript" SRC="/front/scripts/validation.js"></script>
 
 	<script type="text/javascript">
 

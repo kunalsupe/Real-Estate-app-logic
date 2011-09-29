@@ -5,7 +5,8 @@ class CreateCountries < ActiveRecord::Migration
       t.string :code
 
       t.timestamps
-    end
+    end     
+     Country.create(:name => 'India' ,:code => '99') 
   end
 
   def self.down

@@ -4,15 +4,17 @@ class AmenitiesController < ApplicationController
   end
   
   def create
-    @amenities = Amenity.new(params[:amenity])
-    respond_to do |format|
+    @amenities = Amenity.new(params[:amenity]) 
+    respond_to do |format| 
+      
        if @amenities.save
         format.html { redirect_to(new_gallery_path(:property_id => @amenities.property_id), :notice => "Step 4: Add a Photo to Gallery") }
         format.xml  { render :xml => @property, :status => :created, :location => @property }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @property.errors, :status => :unprocessable_entity }
-      end
+      
+    end
     end
   end   
   

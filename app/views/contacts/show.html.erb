@@ -1,0 +1,24 @@
+<% title @contact.name %>
+
+
+<ul>
+
+    <li><p>Name: 
+      <%= @contact.name %>   </p>
+    </li> 
+
+	<li><p>Email: 
+      <%= @contact.email %>  </p>   
+    </li>
+
+	<li><p>Message: 
+      <%= @contact.message %>  </p>
+    </li>
+
+</ul>
+
+<p>
+
+  <%= link_to "View All Contacts", contacts_path %>           
+
+</p>

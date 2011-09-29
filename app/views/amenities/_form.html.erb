@@ -3,45 +3,55 @@
   <%= f.error_messages %>   
 
 
+<table>
+  <tr>
+   <td> <%= f.label :tar_roads %>   </td>
+     	<td><b>Yes</b> <%= radio_button("amenities","tar_roads","Yes") %> <b>NO</b>        
+		      <%= radio_button("amenities","tar_roads","No") %> </td>  </tr> 
+           
+<tr>
+<td> <%= f.label :club_house %>    </td>  
+<td>  <b>Yes</b> <%= radio_button("amenities","club_house","Yes") %> <b>NO</b>        
+	      <%= radio_button("amenities","club_house","No") %>   </td>  </tr>  
 
-  <p>
+<tr>
+<td> <%= f.label :swimming_pool %>   </td>  
+<td>  <b>Yes</b> <%= radio_button("amenities","swimming_pool","Yes") %> <b>NO</b>        
+      <%= radio_button("amenities","swimming_pool","No") %>  </td>  </tr>
 
-    
-   <input name="amenities[tar_roads]" type="hidden" value="No" />  
-   <input type="checkbox" id="amenities_tar_roads" name="amenities[tar_roads]" value="Yes" />   <%= f.label :tar_roads %> 
+<tr>
+<td>  <%= f.label :party_hall %>  </td>  
+<td>  <b>Yes</b> <%= radio_button("amenities","party_hall","Yes") %> <b>NO</b>        
+				      <%= radio_button("amenities","party_hall","No") %>   </td>  </tr>
 
-    
-   <input name="amenities[club_house]" type="hidden" value="No" />  
-   <input type="checkbox" id="amenities_club_house" name="amenities[club_house]" value="Yes" /><%= f.label :club_house %>    
- 
-   
-   <input name="amenities[swimming_pool]" type="hidden" value="No" />  
-   <input type="checkbox" id="amenities_swimming_pool" name="amenities[swimming_pool]" value="Yes" />  <%= f.label :swimming_pool %> 
-  
-  
-   <input name="amenities[party_hall]" type="hidden" value="No" />  
-   <input type="checkbox" id="amenities_party_hall" name="amenities[party_hall]" value="Yes" />    <%= f.label :party_hall %> 
-  </p>
-<p>
-    
-   <input name="amenities[health_club]" type="hidden" value="No" />  
-   <input type="checkbox" id="amenities_health_club" name="amenities[health_club]" value="Yes" />     <%= f.label :health_club %> 
- 
-   
-   <input name="amenities[garden]" type="hidden" value="No" />  
-   <input type="checkbox" id="amenities_garden" name="amenities[garden]" value="Yes" /> 
- <%= f.label :garden %> 
-  
-    
-   <input name="amenities[security]" type="hidden" value="No" />  
-   <input type="checkbox" id="amenities_security" name="amenities[security]" value="Yes" />   <%= f.label :security %>
+<tr>
+<td>  <%= f.label :health_club %>  </td>  
+<td> <b>Yes</b> <%= radio_button("amenities","health_club","Yes") %> <b>NO</b>        
+	      <%= radio_button("amenities","health_club","No") %>   </td>  </tr>
 
-   
-   <input name="amenities[intercom]" type="hidden" value="No" />  
-   <input type="checkbox" id="amenities_intercom" name="amenities[intercom]" value="Yes" />   <%= f.label :intercom %>
-  </p>
+<tr>
+<td>  <%= f.label :garden %>    </td>  
+<td>    <b>Yes</b> <%= radio_button("amenities","garden","Yes") %> <b>NO</b>        
+	      <%= radio_button("amenities","garden","No") %>   </td>  </tr>
 
-  
+<tr>
+<td>  <%= f.label :security %>    </td>  
+<td>     <b>Yes</b> <%= radio_button("amenities","security","Yes") %> <b>NO</b>        
+	      <%= radio_button("amenities","security","No") %> </td>  </tr>
 
-  <p><%= f.submit %></p>
-<% end %>
+<tr>
+<td>  <%= f.label :intercom %>    </td>  
+<td>   <b>Yes</b> <%= radio_button("amenities","intercom","Yes") %> <b>NO</b>        
+	      <%= radio_button("amenities","intercom","No") %>   </td>  </tr>
+
+
+        <tr><td>
+		  <p><%= f.submit %></p>
+		<% end %>       </td></tr>
+
+ <table>
+
+
+
+           
+

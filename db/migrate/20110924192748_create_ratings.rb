@@ -1,7 +1,7 @@
 class CreateRatings < ActiveRecord::Migration
   def self.up
     create_table :ratings do |t|
-      t.integer :rate
+      t.integer :rate, :default => 0
       t.string :comment_title
       t.string :comment
       t.integer :approved

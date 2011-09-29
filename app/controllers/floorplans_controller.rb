@@ -9,7 +9,7 @@ class FloorplansController < ApplicationController
     
     respond_to do |format|
       if @floor_plan.save
-        format.html { redirect_to 'properties_path',  :notice => "You have successfully Listed your Property." }
+        format.html { redirect_to(properties_path) }
         format.xml  { render :xml => @property, :status => :created, :location => @property }
       else
         format.html { render :action => "new" }

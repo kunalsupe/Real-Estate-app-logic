@@ -11,9 +11,26 @@ Todo::Application.configure do
 
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = "X-Sendfile"
-
+  
+  # Don't care if the mailer can't send
+   config.action_mailer.raise_delivery_errors = true
   # For nginx:
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+  
+  # set delivery method to :smtp, :sendmail or :test
+  config.action_mailer.delivery_method = :smtp
+
+  # these options are only needed if you choose smtp delivery
+  config.action_mailer.smtp_settings = {
+      :address              => 'smtp.gmail.com',
+      :port                 => 587,
+      :domain               => 'imap.gmail.com',
+      :user_name            => 'info@stbgroup.in',
+      :password             => 'stbgroup123!',
+      :authentication       => 'login',
+      :enable_starttls_auto => true
+    }
+
 
   # If you have no front-end server that supports something like X-Sendfile,
   # just comment this out and Rails will serve the files

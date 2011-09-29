@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/railsdog/searchlogic.git
+  revision: 92487f9773b01d27a350c71d0e12fc0124b866b2
+  specs:
+    rd_searchlogic (3.0.1)
+      activerecord (>= 3.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -32,8 +39,13 @@ GEM
       activesupport (= 3.0.7)
     activesupport (3.0.7)
     addressable (2.2.6)
+    ajaxful_rating (3.0.0.beta3)
     arel (2.0.10)
     attr_required (0.0.3)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     bcrypt-ruby (3.0.1)
     builder (2.1.2)
     cocaine (0.2.0)
@@ -178,11 +190,14 @@ GEM
     warden (1.0.5)
       rack (>= 1.0)
     will_paginate (3.0.pre2)
+    xml-simple (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  ajaxful_rating (= 3.0.0.beta3)
+  aws-s3
   cocaine
   devise
   fb_graph
@@ -194,4 +209,5 @@ DEPENDENCIES
   passport
   prawn
   rails (= 3.0.7)
+  rd_searchlogic!
   will_paginate (= 3.0.pre2)

@@ -1,10 +1,22 @@
 class PropertiesController < ApplicationController
     
     def index
-     # @properties= Property.all    
-       @properties= Property.search(params[:search]).paginate(:per_page => 4, :page => params[:page])
+    #  @property= Property.find(:all)    
+       @properties= Property.search(params[:search]).paginate(:per_page => 8, :page => params[:page])
         @mycounter = showmypropertycount
-        @counter = showallpropertycount
+        @counter = showallpropertycount 
+       @mailcounter = Contact.count(:all)  
+       
+   # @ratingsp = Rating.find(:all) 
+         
+   
+   
+  
+  #    @ratings = Rating.average(:rate, :conditions => ['property_id =?', params[:id]]) 
+
+     #  @rates = @ratings.rate
+      #  @avgrate = @rates.inject{ |sum,el| sum + el }.to_f / @ratings.size 
+        
         if current_user
           a = current_user  
 
@@ -16,7 +28,33 @@ class PropertiesController < ApplicationController
         format.pdf  { render :layout => false }  
       end
       end
-    end  
+    end    
+    
+    def sale 
+      @properties= Property.search(params[:search]).paginate(:per_page => 10, :page => params[:page])            
+      @sale = Property.find(:all, :conditions => [ "cat_id = ?", 1]).paginate(:per_page => 4, :page => params[:page])       
+       @user = current_user
+    end
+    
+    def rent 
+      @properties= Property.search(params[:search]).paginate(:per_page => 10, :page => params[:page])            
+      @rent =  Property.find(:all, :conditions => [ "cat_id = ?", 2]).paginate(:per_page => 4, :page => params[:page])           
+       @user = current_user 
+    end 
+       
+      def featured 
+        @properties= Property.search(params[:search]).paginate(:per_page => 10, :page => params[:page])            
+        @featured =  Property.find(:all, :conditions => [ "featured = ?", 1]).paginate(:per_page => 4, :page => params[:page])           
+         @user = current_user 
+      end  
+      
+      def sold
+         @properties= Property.search(params[:search]).paginate(:per_page => 10, :page => params[:page])            
+        @sold =  Property.find(:all, :conditions => [ "sold = ?", 1]).paginate(:per_page => 4, :page => params[:page])           
+         @user = current_user
+      end
+      
+  
 
          def calender
               @properties= Property.find(:all)  
@@ -55,10 +93,12 @@ class PropertiesController < ApplicationController
        @specification = Specification.find_by_property_id(params[:id])  
        @amenities = Amenity.find_by_property_id(params[:id]) 
        @galleries = Gallery.find_all_by_property_id(params[:id], :conditions => "photo_file_name IS NOT NULL")
-     
+       
        @gallery = Gallery.find_by_property_id(params[:id]) 
        @floorplans = Floorplan.find_all_by_property_id(params[:id], :conditions => "photo_file_name IS NOT NULL")
        @floorplan = Floorplan.find_by_property_id(params[:id]) 
+      
+      @ratings = Rating.average(:rate, :conditions => ['property_id =?', params[:id]]) 
       
       if current_user
       # @a = current_user.id    

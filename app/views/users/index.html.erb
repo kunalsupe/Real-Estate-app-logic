@@ -1,0 +1,24 @@
+
+
+<table>
+  <tr>
+    <th>Users</th>
+    <th>Email</th>  
+    <th>Last Sign-in IP</th> 
+    <th>Last Sign-in at</th> 
+    <th>Registered On</th>
+    <th>Action</th>  
+  </tr>
+  <% for user in @users %>
+    <tr>
+      <td><%= user.name %></td>
+      <td> <%= user.email %>   
+      <td> <%= user.last_sign_in_ip %> </td>
+      <td> <%= user.last_sign_in_at  %> </td>
+       <td> <%= user.created_at %> </td>
+      <td><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+

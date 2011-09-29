@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Message</th> 
+    <th>Action</th>
+  </tr>
+  <% for contact in @contacts %>
+    <tr>
+      <td><%= link_to contact.name, contact %></td> 
+      <td><%= link_to contact.email %></td>
+      <td><%= link_to contact.message %></td>
+  <td><%= link_to "Destroy", contact, :confirm => 'Are you sure?', :method => :delete %></td> 
+     
+    </tr>
+  <% end %>
+</table>

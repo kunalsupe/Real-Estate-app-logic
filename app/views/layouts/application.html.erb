@@ -12,6 +12,7 @@
 <%= stylesheet_link_tag "scaffold" %>
 <%= stylesheet_link_tag "styles" %>   
 
+  <%= ajaxful_rating_style %>
 
 <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "jquery.rails.js" %>
 <%= csrf_meta_tag %>
@@ -64,7 +65,7 @@
     
         <!-- start of logo - you could replace this with an image of your logo -->
         <div id="logo" class="grid_4">
-          <h1>Kunaals <span>Housing</span></h1> <br />
+          <h1>Kunaals' <span>Housing</span></h1> <br />
             <h3>Property Manager</h3>
         </div>
         <!-- end logo -->
@@ -72,7 +73,7 @@
 	    	<div id="controlpanel" class="grid_8">
 
 	            <ul>
-                     <li><a href="#" class="first">Settings</a></li> 
+                     
 	    			<li><p><% if user_signed_in? %> Signed in as <%= current_user.email %></p></li>
 	                <li><%= link_to "Sign out", destroy_user_session_path %></li>    
 	                 <% else %>
@@ -91,15 +92,22 @@
 
 		                <li><%= link_to "Home",  root_path %></li> 
 		<% if user_signed_in? %>
-		                  <li><%= link_to "Dashboard",  properties_path %></li>
+		                  <li><%= link_to "Dashboard",  properties_path %></li>  
+						 <% if current_user.admin %>    
+							              <li><%= link_to "Users", users_path %></li>
+							<% end %>
 		<% else %>
-		                <li><%= link_to "Sign In", authentications_path %></li>  <% end %> 
+		                <li><%= link_to "All Properties", properties_path %></li>  <% end %> 
 		               
-		                <li><a href="#">Articles</a></li>
-		                <li><a href="#">Even Longer Navigation Link</a></li>
-		                <li><a href="#">Random Link</a></li>
-		                <li><a href="#">Last Link</a></li>
-
+		                <li><a href="#">About</a></li>
+		                <li><a href="#">Help</a></li>
+		                <li><a href="#">Faq</a></li>
+		                <li><%= link_to "Sale",  sale_path %></li>
+		                <li><%= link_to "Rent", rent_path %></li>
+			             <li><%= link_to "Featured Properties", featured_path %></li>
+			            <li><%= link_to "Sold Properties", sold_path %></li>
+	   
+		               
                 
 		            </ul>
 
@@ -109,7 +117,7 @@
 			</div><!-- end header -->
                             
 	
-     <div class="notification lightbulb canhide">    
+     <div id="noticeup">    
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>

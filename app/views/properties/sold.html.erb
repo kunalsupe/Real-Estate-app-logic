@@ -1,0 +1,41 @@
+<h2>Sold Properties</h2>
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %> 
+<table class="tablesorter" id="myTable"> 
+  <tr>
+    <th>Title</th>
+    <th>Builder</th>
+    <th>Address</th> 
+    <th>City</th>
+    <th>State</th>
+    <th>Price</th> 
+ <% if user_signed_in? %> 
+    <th>Email</th>   <% end %>
+    <th>Description</th>
+    <th>Action</th>
+   
+  </tr>
+
+<% @sold.each do |property| %>
+  <tr>
+    <td><%= link_to property.title, property %></td>
+    <td><%= property.builder %></td> 
+	<td><%= property.address %></td>
+    <td><%= property.city %></td>
+	<td><%= property.state %></td>
+    <td><%= property.price %></td> 
+<% if user_signed_in? %>  
+   <td><%= @user.email %></td>   <% end %> 
+    <td> <%= truncate(property.description, 20) %>
+
+</td>
+    
+    <td> <div ><%= link_to image_tag("/images/accept.png"), property %> </div> </div>  </td>              
+   
+
+                    
+
+  </tr>
+<% end %>
+</table>
+<%= will_paginate  %>

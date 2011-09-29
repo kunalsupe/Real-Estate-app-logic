@@ -166,7 +166,17 @@ blockquote 						{ margin:22px 40px; color:#575757; padding: 0px 50px; backgroun
 ----------------------------------------- */
 
 #sub_nav {
-	background-color: #F2F2F2;
+	background-color: #5E7D7E;
+	overflow: hidden;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}   
+
+#noticeup {
+	background-color: #736F6E;
 	overflow: hidden;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
@@ -191,8 +201,8 @@ blockquote 						{ margin:22px 40px; color:#575757; padding: 0px 50px; backgroun
 }
 #subnav ul li 							{ display: inline;}
 
-#subnav ul li .sub_nav_active 			{ color: #000; font-weight: bold;}
-#subnav_wrap #subnav ul li a:hover 		{ color: #333; text-decoration: underline;}
+#subnav ul li .sub_nav_active 			{ color: #5E7D7E; font-weight: bold;}
+#subnav_wrap #subnav ul li a:hover 		{ color: #5E7D7E; text-decoration: underline;}
 #subnav ul li .sub_nav_last 			{ border-right-style: none;}
 
 

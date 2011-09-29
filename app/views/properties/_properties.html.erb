@@ -8,10 +8,9 @@
     <th>City</th>
     <th>State</th>
     <th>Price</th> 
- <% if user_signed_in? %> 
-    <th>Email</th>   <% end %>
-    <th>Description</th>
-    <th>Action</th>
+    <th>Status</th>
+    <th>Featured</th>
+    <th>Ratings</th>
    
   </tr>
 
@@ -23,16 +22,36 @@
     <td><%= property.city %></td>
 	<td><%= property.state %></td>
     <td><%= property.price %></td> 
-<% if user_signed_in? %>  
-   <td><%= @user.email %></td>   <% end %> 
-    <td> <%= truncate(property.description, 20) %>
 
+    <td>   <% if property.sold == 1 %>  
+             <%= image_tag("/images/sold.jpg", :height => "80%") %>
+     <% elsif property.cat_id == 1 %>
+                <%= image_tag("/images/sale.jpg", :height => "80%") %>
+    <% elsif property.cat_id == 2 %>
+                             <%= image_tag("/images/rent.jpg", :height => "80%") %>
+   <% end %>
+             
 </td>
     
-    <td> <div ><%= link_to image_tag("/images/accept.png"), property %> </div> </div>  </td>              
-   
+    <td> 
+<% if property.featured == 1 %> 
+<div ><%= link_to image_tag("/images/recommend.jpg"), property %> </div> </div><% else %> <% end %>   </td>              
+  
+<td>                                
+     	    
+        <% if Rating.average(:rate, :conditions => ['property_id =?', property])  == nil %>
+                  
+             Not Rated 
+			
+	    <% end %>                     
+                   
+<% if Rating.average(:rate, :conditions => ['property_id =?', property])  != nil %> 
+              <%= Rating.average(:rate, :conditions => ['property_id =?', property])   %> <%= '*' %>
+          <% end %>
 
-                    
+
+</td>
+
 
   </tr>
 <% end %>

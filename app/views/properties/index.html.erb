@@ -10,14 +10,16 @@
 	            <li><img SRC="/images/icondock/chart_bar.png" alt="Stats" /><br /><%= link_to 'My Properties', :controller =>'properties', :action => 'showmyproperty' %> <span><%= @mycounter %></span></li>
 	            <li><img SRC="/images/icondock/date.png" alt="Events" /><br /><%= link_to 'Calender', :controller =>'properties', :action => 'calender' %></li>
 	            <li><img SRC="/images/icondock/user.png" alt="Users" /><br /><%= link_to "Edit Profile", :controller => 'registrations', :action => 'edit' %></li>
-	            
-
+	         
+	 <% if current_user.admin? %> 
+	<li><img SRC="images/icondock/email.png" alt="Mail" /><br /><%= link_to 'Mails', contacts_path %><span><%= @mailcounter %></span></a></li>   
+        <% end %>
 		  </ul>
 
         
 		</div><!-- end icon dock-->
  <% end %> 
-<h5>Search by City</h5>  
+<h5>Search by City, State or Address</h5>  
 <%= form_tag properties_path, :method => 'get', :id => "properties_search" do %>
 	  <p>
 	    <%= text_field_tag :search, params[:search] %>
@@ -30,7 +32,7 @@
    
 <br />
 
-<%= link_to 'Add a Property', new_property_path %>  
+
 
 
 

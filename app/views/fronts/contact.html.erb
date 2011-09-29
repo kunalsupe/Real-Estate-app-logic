@@ -1,0 +1,11 @@
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for contact in @contacts %>
+    <tr>
+      <td><%= link_to contact.name %></td>
+     
+    </tr>
+  <% end %>
+</table>

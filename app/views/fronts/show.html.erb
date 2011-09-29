@@ -1,0 +1,28 @@
+
+
+			<h3>Drop us a line</h3> 
+			  <p><span><%= alert %><%= notice %></span></p>
+			<span id="chatform">  <% form_for :reset_password do |form| %>
+
+					   <%= form.hidden_field :id, :value => '1' %>
+				<ul>
+					<li id="name_wrap"><label for="name"><span>Your name</span></label> <%= form.text_field :name, :size => 40 %> </li>
+					<li id="email_wrap"><label for="email"><span>Your email</span></label><%= form.text_field :email, :size => 40 %></li>
+					<li id="message_wrap"><label for="message"><span>Message</span></label> <%= form.text_area :message, :rows => 4, :cols => 45, :id=>"message" %></li>
+					<li id="check_wrap">
+													<span>       <span id="n1">1</span> <span>+</span> <span id="n2">3</span> <span>=</span>
+													</span>
+					   
+						</span>
+ <input id="check" type="text" /> 
+					</li>  
+					<%= submit_tag 'Submit' %>  
+				</ul>
+			   <% end %> 
+			<div id="confirmation"></div>
+
+	
+	     </span>
+	
+		   
+			  
