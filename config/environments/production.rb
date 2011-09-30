@@ -21,15 +21,15 @@ Todo::Application.configure do
   config.action_mailer.delivery_method = :smtp
 
   # these options are only needed if you choose smtp delivery
- # config.action_mailer.smtp_settings = {
-  #    :address              => 'smtp.gmail.com',
-  #    :port                 => 587,
-   #   :domain               => 'imap.gmail.com',
-    #  :user_name            => 'info@stbgroup.in',
-     # :password             => 'stbgroup123!',
-     # :authentication       => 'login',
-     # :enable_starttls_auto => true
-    # }
+  config.action_mailer.smtp_settings = {
+      :address              => 'smtp.gmail.com',
+      :port                 => 587,
+      :domain               => 'imap.gmail.com',
+      :user_name            => 'info@stbgroup.in',
+      :password             => 'stbgroup123!',
+      :authentication       => 'login',
+      :enable_starttls_auto => true
+     }
 
 
   # If you have no front-end server that supports something like X-Sendfile,
