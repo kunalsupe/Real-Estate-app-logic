@@ -1,0 +1,59 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %> 
+<table class="tablesorter" id="myTable"> 
+  <tr>
+    <th>Title</th>
+    <th>Builder</th>
+    <th>Address</th> 
+    <th>City</th>
+    <th>State</th>
+    <th>Price</th> 
+    <th>Status</th>
+    <th>Featured</th>
+    <th>Ratings</th>
+   
+  </tr>
+
+<% @b.each do |property| %>
+  <tr>
+    <td><%= link_to property.title, property %></td>
+    <td><%= property.builder %></td> 
+	<td><%= property.address %></td>
+    <td><%= property.city %></td>
+	<td><%= property.state %></td>
+    <td><%= property.price %></td> 
+
+    <td>   <% if property.sold == 1 %>  
+             <%= image_tag("/images/sold.jpg", :height => "80%") %>
+     <% elsif property.cat_id == 1 %>
+                <%= image_tag("/images/sale.jpg", :height => "80%") %>
+    <% elsif property.cat_id == 2 %>
+                             <%= image_tag("/images/rent.jpg", :height => "80%") %>
+   <% end %>
+             
+</td>
+    
+    <td> 
+<% if property.featured == 1 %> 
+<div ><%= link_to image_tag("/images/recommend.jpg"), property %> </div> </div><% else %> <% end %>   </td>              
+  
+<td>                                
+     	    
+        <% if Rating.average(:rate, :conditions => ['property_id =?', property])  == nil %>
+                  
+             Not Rated 
+			
+	    <% end %>                     
+                   
+<% if Rating.average(:rate, :conditions => ['property_id =?', property])  != nil %> 
+              <%= Rating.average(:rate, :conditions => ['property_id =?', property])   %> <%= '*' %>
+          <% end %>
+
+
+</td>
+
+
+  </tr>
+<% end %>
+</table>
+<%= will_paginate  %>

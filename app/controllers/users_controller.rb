@@ -40,10 +40,11 @@ class UsersController < ApplicationController
   # GET /users/1.json                                     HTML AND AJAX
   #-------------------------------------------------------------------
   def show
-    respond_to do |format|
-      format.json { render :json => @user }
-      format.xml  { render :xml => @user }
-      format.html      
+      @user = User.find(params[:id])
+       
+           @a = @user.id 
+            @b = Property.where(:builder_id => @a)
+     
     end
  
   rescue ActiveRecord::RecordNotFound
