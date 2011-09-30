@@ -1,4 +1,9 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController  
+  before_filter :authenticate_user! 
+  before_filter do 
+      redirect_to root_path unless current_user && current_user.admin?
+    end
+  
  # before_filter :get_user, :only => [:index,:new,:edit]
  # before_filter :accessible_roles, :only => [:new, :edit, :show, :update, :create]
   # load_and_authorize_resource :only => [:show,:new,:destroy,:edit,:update]
@@ -7,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users.xml                                                
   # GET /users.json                                       HTML and AJAX
   #-----------------------------------------------------------------------
+  
   def index                                  
     
     @users = User.find(:all)
