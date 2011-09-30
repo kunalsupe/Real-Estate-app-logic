@@ -21,7 +21,12 @@
       <td><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %></td>   
  
     </tr>
-  <% end %>
+  <% end %>   
+
+<% for auth in @a %> 
+<td><%= auth.provider %></td>  
+
+<% end %>
 </table>
 
 

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   #-----------------------------------------------------------------------
   
   def index                                  
-    
+     @a = Authentication.all 
     @users = User.find(:all)
     respond_to do |format|
       format.json { render :json => @users }
@@ -69,9 +69,9 @@ class UsersController < ApplicationController
     redirect_to users_url
   end        
   
-  def auth
-     @a = Authentication.all 
-  end
+  
+    
+ 
  
   # POST /users
   # POST /users.xml         
