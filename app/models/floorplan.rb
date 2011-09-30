@@ -1,4 +1,5 @@
-class Floorplan < ActiveRecord::Base       
+class Floorplan < ActiveRecord::Base   
+  include Rhoconnect::Resource      
   attr_accessible :title, :photo, :property_id, :photo_file_name, :photo_content_type, :photo_file_size 
    belongs_to :property   
    Max_Attachments = 5
@@ -9,5 +10,16 @@ class Floorplan < ActiveRecord::Base
           :small  => "400x400>" },
           :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
           :url => "/assets/floorplan/photos/:id/:style/:basename.:extension",  
-          :path => ":rails_root/public/assets/floorplan/photos/:id/:style/:basename.:extension"
+          :path => ":rails_root/public/assets/floorplan/photos/:id/:style/:basename.:extension"  
+          
+          def partition
+            'Property Manager'
+          end                 
+
+          def self.rhoconnect_query(partition)
+            Floorplan.all
+
+          end          
+          
+          
 end

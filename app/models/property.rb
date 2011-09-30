@@ -1,4 +1,5 @@
-class Property < ActiveRecord::Base
+class Property < ActiveRecord::Base      
+  include Rhoconnect::Resource  
     belongs_to :user 
     has_many :specifications 
     has_many :amenities
@@ -16,5 +17,13 @@ validates_presence_of :city, :state, :address, :country, :price, :description, :
       end
     end
    
+    def partition
+      'Property Manager'
+    end                 
+
+    def self.rhoconnect_query(partition)
+      Property.all
+
+    end
 
   end

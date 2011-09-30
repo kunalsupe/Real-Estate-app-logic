@@ -12,5 +12,6 @@ gem 'will_paginate', '3.0.pre2'
 gem 'jquery-rails' 
 gem 'cocaine'
 gem 'aws-s3'
-gem 'ajaxful_rating', '3.0.0.beta3'
+gem 'ajaxful_rating', '3.0.0.beta3'   
+gem  'rhoconnect-rb'
 
