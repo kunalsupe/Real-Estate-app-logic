@@ -14,7 +14,7 @@
     <tr>
       <td><%= link_to user.name, user %></td>
       <td> <%= user.email %>
-      <td> <%= Property.count(:all, :conditions =>["builder_id =?", user)  %>   
+      <td> <%= Property.count(:all, :conditions =>['builder_id =?', user])  %>   
       <td> <%= user.last_sign_in_ip %> </td>
       <td> <%= user.last_sign_in_at  %> </td>
        <td> <%= user.created_at %> </td>
