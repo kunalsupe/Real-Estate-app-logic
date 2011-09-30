@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :properties
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
-  devise :database_authenticatable, 
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
  
   # Setup accessible (or protected) attributes for your model
