@@ -1,13 +1,13 @@
 
 
 	
-	<p> Sign In Options </p>
+	<h2> Sign In Options </h2>
 	
 	<div class="attention"><% unless user_signed_in? %>
 
 	    <strong>Don't use these services?</strong>
 	    <%= link_to "Sign up", new_user_registration_path %> or
-	    <%= link_to "sign in", new_user_session_path %> with a password.
+	    <b><%= link_to "sign in", new_user_session_path %> with a password. </b>
 	  
 	<% end %></div>
 
@@ -35,17 +35,16 @@
 <a href="/auth/twitter" class="auth_provider">
   <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %>
   Twitter
-</a>
+</a>   
+
+
 <a href="/auth/facebook" class="auth_provider">
   <%= image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook" %>
   Facebook
 </a>         
 
 
-<a href="/auth/linked_in" class="auth_provider">
-  <%= image_tag "linkedin_64.png", :size => "64x64", :alt => "LinkedIn" %>
-  LinkedIn
-</a>
+
 <div class="clear"></div>
 
 
