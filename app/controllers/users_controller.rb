@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   # GET /users.json                                       HTML and AJAX
   #-----------------------------------------------------------------------
   def index
-    @users = User.find(:all, :conditions => ["admin == ?", 1])
+    @users = User.find(:all, :conditions => ["admin = ?", 1])
     respond_to do |format|
       format.json { render :json => @users }
       format.xml  { render :xml => @users }
