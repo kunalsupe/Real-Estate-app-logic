@@ -18,7 +18,9 @@
       <td> <%= user.last_sign_in_ip %> </td>
       <td> <%= user.last_sign_in_at  %> </td>
        <td> <%= user.created_at %> </td>
-      <td><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %></td>   
+
+<td><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :authdestroy %></td>
     </tr>
   <% end %>
 </table>
