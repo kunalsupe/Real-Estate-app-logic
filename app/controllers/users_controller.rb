@@ -47,10 +47,7 @@ class UsersController < ApplicationController
      
     end
  
-  rescue ActiveRecord::RecordNotFound
-    respond_to_not_found(:json, :xml, :html)
-  end
- 
+  
   # GET /users/1/edit                                                      
   # GET /users/1/edit.xml                                                      
   # GET /users/1/edit.json                                HTML AND AJAX
