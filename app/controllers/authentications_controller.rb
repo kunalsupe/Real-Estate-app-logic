@@ -30,9 +30,7 @@ class AuthenticationsController < ApplicationController
      end
    end
                    
-  def authdestroy
-    @authentication.destroy_all 
-  end
+
   
   def destroy
     @authentication = current_user.authentications.find(params[:id])

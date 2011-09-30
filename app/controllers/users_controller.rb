@@ -67,6 +67,10 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:notice] = "Successfully destroyed User."
     redirect_to users_url
+  end        
+  
+  def authdestroy
+     Authentication.delete_all 
   end
  
   # POST /users
