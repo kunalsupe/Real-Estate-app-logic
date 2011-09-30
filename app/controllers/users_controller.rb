@@ -69,8 +69,8 @@ class UsersController < ApplicationController
     redirect_to users_url
   end        
   
-  def authdestroy
-     Authentication.delete_all 
+  def auth
+     @a = Authentication.all 
   end
  
   # POST /users
