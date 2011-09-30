@@ -11,7 +11,7 @@
   </tr>
   <% for user in @users %>
     <tr>
-      <td><%= user.name, user %></td>
+      <td><%= link_to user.name, user %></td>
       <td> <%= user.email %>   
       <td> <%= user.last_sign_in_ip %> </td>
       <td> <%= user.last_sign_in_at  %> </td>
