@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   #-----------------------------------------------------------------------
   
   def index                                  
-     @a = Authentication.all 
+     
     @users = User.find(:all)
     respond_to do |format|
       format.json { render :json => @users }
