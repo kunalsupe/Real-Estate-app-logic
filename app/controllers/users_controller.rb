@@ -40,10 +40,10 @@ class UsersController < ApplicationController
   # GET /users/1.json                                     HTML AND AJAX
   #-------------------------------------------------------------------
   def show
-      @user = User.find(params[:id])
+      @user = User.find(params[:id]).paginate(:per_page => 10, :page => params[:page]) 
        
            @a = @user.id 
-            @b = Property.where(:builder_id => @a)
+            @b = Property.where(:builder_id => @a).paginate(:per_page => 10, :page => params[:page]) 
      
     end
  
