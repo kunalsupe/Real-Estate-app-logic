@@ -44,7 +44,7 @@ class UsersController < ApplicationController
        
            @a = @user.id 
             @b = Property.where(:builder_id => @a)
-     
+            @count = Property.count(:builder_id => @a) 
     end
  
   
