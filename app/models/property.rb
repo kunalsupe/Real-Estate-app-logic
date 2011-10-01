@@ -18,7 +18,7 @@ validates_presence_of :city, :state, :address, :country, :price, :description, :
     end
    
     def partition
-      'Property Manager'
+      'kunal'
     end                 
 
     def self.rhoconnect_query(partition)
