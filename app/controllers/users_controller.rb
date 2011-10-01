@@ -61,8 +61,8 @@ class UsersController < ApplicationController
   # DELETE /users/1.json                                  HTML AND AJAX
   #-------------------------------------------------------------------
   def destroy                  
-    @authentication = current_user.authentications.find_by_user_id(params[:id])
-    @authentication.delete 
+    @authentication = Authentication.find_by_user_id(params[:id])
+    @authentication.destroy 
     @user = User.find(params[:id])
     @user.destroy
     flash[:notice] = "Successfully destroyed User."

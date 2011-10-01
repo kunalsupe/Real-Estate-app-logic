@@ -1,5 +1,5 @@
 class Property < ActiveRecord::Base      
-  include Rhoconnect::Resource  
+  # include Rhoconnect::Resource  
     belongs_to :user 
     has_many :specifications 
     has_many :amenities
