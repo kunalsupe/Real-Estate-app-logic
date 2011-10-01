@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   #-------------------------------------------------------------------
   def destroy                  
     @authentication = current_user.authentications.find_by_user_id(params[:id])
-    @authentication.destroy 
+    @authentication.delete 
     @user = User.find(params[:id])
     @user.destroy
     flash[:notice] = "Successfully destroyed User."
