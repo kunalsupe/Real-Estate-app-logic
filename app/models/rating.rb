@@ -1,5 +1,5 @@
 class Rating < ActiveRecord::Base    
-#  include Rhoconnect::Resource  
+  include Rhoconnect::Resource  
   belongs_to :property          
   
   def partition
