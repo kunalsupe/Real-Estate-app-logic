@@ -18,11 +18,11 @@ validates_presence_of :city, :state, :address, :country, :price, :description, :
     end
    
     def partition
-      'kunal'
+      lambda { self.user.username }
     end                 
 
     def self.rhoconnect_query(partition)
-      Property.all
+      Product.where(:user_id => partition)
 
     end
 
