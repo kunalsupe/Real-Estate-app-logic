@@ -1,4 +1,5 @@
-class User < ActiveRecord::Base 
+class User < ActiveRecord::Base   
+  include Rhoconnect::Resource 
   ajaxful_rater
   has_many :authentications
   has_many :books

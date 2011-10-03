@@ -10,8 +10,8 @@ class Gallery < ActiveRecord::Base
          :thumb => "100x100#",
          :small  => "400x400>" }, 
          :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-         :url => "/assets/gallery/photos/:id/:style/:basename.:extension",  
-         :path => ":rails_root/public/assets/gallery/photos/:id/:style/:basename.:extension"
+         :path => "/gallery/:id/:style/:basename.:extension",  
+        
 
 
          def partition
