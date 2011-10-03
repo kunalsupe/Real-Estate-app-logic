@@ -9,7 +9,7 @@ class Floorplan < ActiveRecord::Base
           :thumb => "100x100#",
           :small  => "400x400>" },
           :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-          :path => "/floorplan/:id/:style/:basename.:extension",  
+          :path => "/floorplan/:id/:style/:basename.:extension"  
          
           
           def partition
