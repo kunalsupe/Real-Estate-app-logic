@@ -37,10 +37,24 @@
 
 <div class="tab_container">
     <div id="tab1" class="tab_content">
-        <!-- START IMAGE GALLERY -->
+        <!-- START IMAGE GALLERY -->     
+
+		 <td>   <% if @property.sold == 1 %>  
+		             <%= image_tag("/images/sold.jpg", :height => "80%") %>
+		     <% elsif @property.cat_id == 1 %>
+		                <%= image_tag("/images/sale.jpg", :height => "80%") %>
+		    <% elsif @property.cat_id == 2 %>
+		                             <%= image_tag("/images/rent.jpg", :height => "80%") %>
+		   <% end %>
+
+		</td>
+		
+		
  <p align ="right">		 <% if @property.featured == 1 %> 
 		  <%= link_to image_tag("/images/recommend.jpg") %>   </td>              
-			 <% else %> <% end %></p> 
+			 <% else %> <% end %></p>  
+			
+			
 <h2>Image Gallery</h2>
 
 <ul class="imglist">    
@@ -226,4 +240,6 @@
 
    
 </div>
+                                     
+
 

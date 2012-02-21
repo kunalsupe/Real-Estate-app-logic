@@ -4,12 +4,12 @@ common: &common
 
 development:
     <<: *common
-    bucket: Khmobile
+    bucket: Khmobile1
 
 test:
     <<: *common
-    bucket: Khmobile-123-test
+    bucket: Khmobile1-123-test
 
 production:
     <<: *common
-    bucket: Khmobile
+    bucket: Khmobile1

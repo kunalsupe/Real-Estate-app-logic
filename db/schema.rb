@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(:version => 20110928021548) do
     t.integer  "cat_id"
     t.integer  "sold",        :default => 0
   end
+                                                       
 
   create_table "rates", :force => true do |t|
     t.integer  "rater_id"
@@ -184,3 +185,5 @@ ActiveRecord::Schema.define(:version => 20110928021548) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
+                                    
+

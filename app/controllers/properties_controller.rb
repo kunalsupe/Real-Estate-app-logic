@@ -8,9 +8,7 @@ class PropertiesController < ApplicationController
        @mailcounter = Contact.count(:all)  
        
    # @ratingsp = Rating.find(:all) 
-         
-   
-   
+
   
   #    @ratings = Rating.average(:rate, :conditions => ['property_id =?', params[:id]]) 
 
